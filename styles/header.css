@@ -1,0 +1,91 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: 700;
+    font-size: 17.19px;
+    line-height: 25.79px;
+    letter-spacing: -1%;
+    text-align: center;
+}
+
+header{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    
+}
+.header-right-side{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 350px;
+    position: relative;
+    margin-right: 50px;
+}
+.logo-button,
+.login-button{
+    width: 199.9px;
+    height: 51.7px;
+    border-radius: 4.3px;
+    background-color: rgba(45, 54, 72, 1);
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.2s, color 0.2s;
+}
+
+
+.logo-button:hover,
+.login-button:hover{
+    background-color: white;
+    color: rgba(45, 54, 72, 1);
+}
+
+.header-left-side{
+    
+    margin-left: 50px;
+}
+.login-button{
+    width: 100px;
+    border-radius: 6.3px;
+}
+.line-breker{
+    background-color: rgba(45, 54, 72, 1);
+    height: 3px;
+}
+.home-tab,
+.fetures-tab,
+.more-tab{
+    background-color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.moving-hl{
+    position: absolute;
+    background-color: rgba(45, 54, 72, 1);
+    height: 3px;
+    width: 50px;
+    top: 45px;
+    left: px; 
+    transition: transform 0.5s ease-in-out, width 0.5s;
+}
+
+
+.animationFeature{
+    transform: translateX(80px);
+    width: 70px;
+}
+.animationMore{
+    transform: translateX(175px);
+    width: 45px;
+}
+
+.animationHome{
+    transform: translateX(0px);
+    width: 45px;
+}
