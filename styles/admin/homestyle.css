@@ -1,0 +1,120 @@
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.middle {
+    width: 100%;
+    height: 400px; 
+    background-image: url(attendance.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+.middle h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    animation: pulseText 3s ease-in-out infinite;
+}
+
+.tranbox{
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(3px); 
+    text-align: center;
+        width: 100%;
+    height: 400px;
+}
+
+.middle button {
+    width: 80px;
+    height: 50px;
+    background-color: black;
+    color: white;
+    border: 2px solid black;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.middle p {
+    color: rgb(53, 42, 42);
+    margin-top: 10px;
+}
+
+.middle button:active {
+    background-color: rgb(222, 135, 177);
+}
+.middle button:hover{
+    background-color: rgb(64, 255, 0);
+    transition: background-color 1s ease;
+}
+.last{
+    text-align: center;
+    justify-content: center;
+    justify-items: center;
+    display: flex;
+    flex-direction: column;
+}
+.last p{
+    margin-top: 0%;
+}
+.lastimg {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 10px;
+    width: 100%;
+ 
+    
+}
+
+.lastimg img {
+    width: 200px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 4px solid #2196f3; /* Blue border */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.lastimg img:hover {
+    transform: scale(1.1);
+    border-color: #0d47a1; /* Darker blue on hover */
+}
+.lastimg figure{
+        border: 2px solid black;
+        border-radius: 8px;
+}
+
+.lastimg p{
+    text-align: center;
+    border: 1px solid white;
+    box-shadow: 100px;
+}
+
+
+@keyframes pulseText {
+  0% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.05) translateY(-5px);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(1) translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
