@@ -7,7 +7,7 @@ body {
 .middle {
     width: 100%;
     height: 400px; 
-    background-image: url(attendance.jpg);
+    background-image: url(../../images/attendance.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
