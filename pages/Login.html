@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <link rel="stylesheet" href="login.css"> <!-- Only loads login.css -->
+</head>
+
+<body class="login-page">
+    <div class="login-container">
+        <h1 class="login-title">Sign In</h1>
+        <fieldset class="login-fieldset">
+            <legend class="login-legend">Login</legend>
+            <form class="login-form" action="home.html" method="get">
+                <label class="login-label" for="login-email">Email:</label>
+                <input class="login-input" type="email" id="login-email" name="email" required>
+
+                <label class="login-label" for="login-password">Password:</label>
+                <input class="login-input" type="password" id="login-password" name="password" required>
+
+                <button class="login-button" type="submit">Sign In</button>
+            </form>
+        </fieldset>
+        <p class="login-footer"><a class="login-link" href="update.html">Forgot Password?</a></p>
+    </div>
+</body>
+
+</html>
