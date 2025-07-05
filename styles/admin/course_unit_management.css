@@ -80,7 +80,8 @@ a {
 }
 
 .img {
-    background-color: #b9b9b9;
+    background-image: url("../../assets/admin/student-managment/image.png");
+    background-size: cover;
     border-radius: 50%;
     height: 60px;
     width: 60px;
@@ -119,7 +120,9 @@ a {
 }
 
 .search-icon {
-    background-color: #a7a9aa;
+    background-image: url("../../assets/admin/Icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
     width: 50px;
     height: 50px;
     border-radius: 50%;
