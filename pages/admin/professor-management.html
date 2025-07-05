@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="styles\admin\professor-management.css">
+    <link rel="stylesheet" href="../../styles/admin/professor-management.css">
 </head>
 <body>
     <div class="managment-container">
@@ -34,7 +34,7 @@
             <div class="title-container">
                 <h1>Admin Dashboard</h1>
                 <div class="profile-container">
-                    <img class="profile-img" src="Generic avatar.png" alt="">
+                    <img class="profile-img" src="../../assets/admin/student-managment/Generic avatar.png" alt="">
                     <div>Profile</div>
                 </div>
             </div>
@@ -42,11 +42,11 @@
                     <form action="" method="post" class="first-form-container">
                         <div class="input-container">
                             <label for="full-name">Full Name</label>
-                            <input type="text" name="fullName" id="full-name">
+                            <input type="text" name="fullName" id="full-name" required>
                         </div>
                         <div class="input-container">
                             <label for="department">Department</label>
-                            <select name="department" id="department">
+                            <select name="department" id="department" required>
                                 <option>Select</option>
                                 <option value="CS">Computer Science</option>
                                 <option value="SE">Software Engineering</option>
@@ -55,7 +55,7 @@
                         </div>
                         <div class="input-container">
                             <label for="subject">Subject</label>
-                            <select name="subject" id="subject">
+                            <select name="subject" id="subject" required>
                                 <option>Select</option>
                                 <option value="RAD">Rapid Application Development</option>
                                 <option value="WT">Web Technologies</option>
@@ -81,13 +81,17 @@
                             <label for="uniID">University ID Number</label>
                             <input type="text" name="uniID" id="uniID">
                         </div>
+                        <div class="input-container">
+                            <label for="designation">Designation</label>
+                            <input type="text" name="designation" id="designation" required>
+                        </div>
 
                     </form>
                     <form action="" method="post" class="second-form-container">
                         
                         <div class="input-container">
                             <label for="contactNumber">Contact Number</label>
-                            <input type="text" name="contactNumber" id="contactNumber">
+                            <input type="tel" name="contactNumber" id="contactNumber" required>
                         </div>
                         <div class="input-container">
                             <label for="address">Address</label>
@@ -95,11 +99,20 @@
                         </div>
                         <div>
                             <label for="email">Email address</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" required>
                         </div>
                         <div>
                             <label for="nicNO">NIC Number</label>
-                            <input type="text" name="nicNO" id="nicNO">
+                            <input type="text" name="nicNO" id="nicNO" required>
+                        </div>
+                        <div>
+                            <label for="status">Status</label>
+                            <select name="status" id="status" required>
+                                <option value="Active">Active</option>
+                                <option value="On Leave">On Leave</option>
+                                <option value="Retired">Retired</option>
+                                <option value="Resigned">Resigned</option>
+                            </select>
                         </div>
                         <button type="submit">Submit</button>
                         <button>Update</button>
@@ -109,7 +122,7 @@
             <div class="serach-container">
                 <div class="serach-box">
                     <input type="text" name="search" class="serach-bar" placeholder="Enter Professor Name">
-                    <img src="search.png" class="search-img">
+                    <img src="../../assets/admin/student-managment/search.png" class="search-img">
                 </div>   
             </div>
             <div class="table-container">
@@ -146,6 +159,6 @@
             </div>
         </div>
     </div>
-    <script src="../../controller/admin/student-managment.js"></script>
+    <script src=""></script>
 </body>
 </html>
