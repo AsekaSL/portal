@@ -7,8 +7,11 @@
 
   <!-- Chart.js CDN -->
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- jsPDF CDN -->
+  <!-- jsPDF CDN with autoTable plugin -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+  <!-- Moment.js for date handling -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 
   <link rel="stylesheet" href="../../styles/admin/report-generation.css" />
 </head>
@@ -81,14 +84,38 @@
     <div id="loading" style="display:none;">Loading...</div>
     <div id="error" style="display:none;"></div>
 
+    <div id="reportSummary" class="report-summary">
+      <h3>Report Summary</h3>
+      <div class="summary-stats">
+        <div class="stat-card">
+          <div class="stat-number" id="totalStudents">0</div>
+          <div class="stat-label">Total Students</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="avgAttendance">0%</div>
+          <div class="stat-label">Average Attendance</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="totalClasses">0</div>
+          <div class="stat-label">Total Classes</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number" id="dateRange">0</div>
+          <div class="stat-label">Days Range</div>
+        </div>
+      </div>
+    </div>
+
     <table id="reportTable" style="display:none;">
       <thead>
         <tr>
           <th>Student ID</th>
           <th>Name</th>
+          <th>Email</th>
           <th>Attendance %</th>
           <th>Present Days</th>
           <th>Absent Days</th>
+          <th>Late Arrivals</th>
         </tr>
       </thead>
       <tbody>
@@ -99,7 +126,7 @@
       <canvas id="attendancePieChart"></canvas>
     </div>
 
-    <button id="downloadPDF">Download PDF Report</button>
+    <button id="downloadPDF">Download Detailed PDF Report</button>
   </div>
 
   <script src="../../controller/admin/report-generation.js"></script>
