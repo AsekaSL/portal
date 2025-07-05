@@ -5,34 +5,35 @@
 
 body {
     font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
     max-height: 100vh;
 }
 
 .container {
     width: 100%;
-    background-color: aquamarine;
+    background-color: rgb(255, 255, 255);
     display: flex;
 }
 
 .sidebar {
     height: 100vh;
     width: 300px;
-    background-color: rgb(115, 115, 163);
+    background-color: #7761f457;
     position: relative;
+    border-right: 3px solid #7861F4;
 }
 
 .logout {
     width: 100%;
     height: 100px;
-    background-color: #863737;
+    background-color: #7761f457;
     margin-bottom: 0;
     position: absolute;
     bottom: 45px;
 }
 
 .links {
-    background-color: #eb7777;
+    background-color: #7861F4;
     width: 100%;
     height: 60px;
     margin-top: 10px;
@@ -41,17 +42,25 @@ body {
     align-items: center;
 }
 
+.links:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    border-radius: 0 10px 10px 0;
+}
+
 a {
     text-decoration: none;
+    color: white;
+    font-weight: bold;
 }
 
 .main-content {
-    background-color: #aacf53;
+    background-color: #ffffff;
     width: 100%;
 }
 
 .header {
-    background-color: #f4f4f4;
+    background-color: #7761f457;
     width: 100%;
     height: 100px;
     display: flex;
@@ -61,7 +70,6 @@ a {
 }
 
 .profile {
-    background-color: #dba1a1;
     height: 90px;
     width: 90px;
     display: flex;
@@ -72,14 +80,14 @@ a {
 }
 
 .img {
-    background-color: #475528;
+    background-color: #b9b9b9;
     border-radius: 50%;
     height: 60px;
     width: 60px;
 }
 
 .main-box {
-    background-color: #be3782;
+    background-color: #7761f41f;
     height: 60%;
     display: flex;
     justify-content: space-evenly;
@@ -87,7 +95,7 @@ a {
 }
 
 .search-box-row {
-    background-color: #475528;
+    background-color: #ffffff;
     height: 60px;
     display: flex;
     justify-content: flex-end;
@@ -97,7 +105,7 @@ a {
 .search-box {
     display: flex;
     height: 50px;
-    background-color: #61163f;
+    background-color: #ffffff;
     border-radius: 25px;
     margin-right: 7%;
 }
@@ -107,10 +115,11 @@ a {
     padding-right: 30px;
     border-radius: 25px;
     border-style: none;
+    background-color: #f4e4fd;
 }
 
 .search-icon {
-    background-color: #1f97c7;
+    background-color: #a7a9aa;
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -131,22 +140,22 @@ table {
 
 
 th, td {
-    border: 2px solid black;
+    border: 2px solid #ffffff;
 }
 
 th {
-    background-color: #1f97c7;
+    background-color: #c7c8f0;
 }
 
 td {
-    background-color: #7ec5e0;
+    background-color: #e8e1fc;
 }
 
 .info-box {
     width: 40%;
     max-width: 500px;
     height: 90%;
-    background-color: #1f97c7;
+    background-color: #7761f4a6;
     border-radius: 25px;
     display: flex;
     flex-direction: column;
@@ -158,6 +167,10 @@ td {
     width: 90%;
     height: 8%;
     padding-left: 15px;
+}
+
+.input:focus {
+    background-color: #dbd6f8;
 }
 
 label {
@@ -182,4 +195,21 @@ label {
 .button-box button {
     padding: 6px 15px;
     width: 25%;
+    border-radius: 25px;
+    border: none;
+}
+
+.button-box button:hover {
+    transform: scale(1.1);
+    background-color: #e0e0f1;
+    transition: all 0.3s ease;
+}
+
+.heading {
+    color: #1F2937;
+}
+
+.caption {
+    margin-left: -22px;
+    font-weight: bold;
 }
