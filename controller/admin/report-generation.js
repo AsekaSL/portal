@@ -1,4 +1,364 @@
-/*(() => {
+(() => {
+    // Mock data for dropdowns and students - replace with real API calls
+    const courseModules = ["Math 101", "Physics 201", "Chemistry 301"];
+    const years = ["2021", "2022", "2023"];
+    const semesters = ["1", "2", "3", "4", "5", "6"];
+    const faculties = ["Science", "Engineering", "Arts"];
+    const departments = ["Computer Science", "Mechanical", "Physics", "Chemistry"];
+
+    // Mock student database for search by ID
+    const studentsDB = {
+        "S001": { name: "Alice Johnson", faculty: "Science", year: "2022" },
+        "S002": { name: "Bob Smith", faculty: "Engineering", year: "2023" },
+        "S003": { name: "Charlie Lee", faculty: "Science", year: "2021" },
+        "S004": { name: "Diana Prince", faculty: "Arts", year: "2022" },
+        "S005": { name: "Ethan Hunt", faculty: "Engineering", year: "2021" },
+        "S006": { name: "Fiona Gallagher", faculty: "Science", year: "2023" },
+    };
+
+    // Elements
+    const courseModuleSelect = document.getElementById("courseModule");
+    const yearSelect = document.getElementById("year");
+    const semesterSelect = document.getElementById("semester");
+    const facultySelect = document.getElementById("faculty");
+    const departmentSelect = document.getElementById("department");
+    const startDateInput = document.getElementById("startDate");
+    const endDateInput = document.getElementById("endDate");
+    const enableStudentSearchCheckbox = document.getElementById("enableStudentSearch");
+    const studentIdInput = document.getElementById("studentId");
+    const searchIcon = document.getElementById("searchIcon");
+    const reportForm = document.getElementById("reportForm");
+    const loadingDiv = document.getElementById("loading");
+    const errorDiv = document.getElementById("error");
+    const reportTable = document.getElementById("reportTable");
+    const reportTbody = reportTable.querySelector("tbody");
+    const chartContainer = document.getElementById("chartContainer");
+    const downloadPDFBtn = document.getElementById("downloadPDF");
+    const studentIdsDatalist = document.getElementById("studentIds");
+
+    let pieChart = null;
+    let currentReportData = [];
+
+    // Populate dropdowns
+    function populateSelect(selectElem, options) {
+        options.forEach(opt => {
+            const option = document.createElement("option");
+            option.value = opt;
+            option.textContent = opt;
+            selectElem.appendChild(option);
+        });
+    }
+
+    populateSelect(courseModuleSelect, courseModules);
+    populateSelect(yearSelect, years);
+    populateSelect(semesterSelect, semesters);
+    populateSelect(facultySelect, faculties);
+    populateSelect(departmentSelect, departments);
+
+    // Populate datalist for student IDs
+    function populateStudentIds() {
+        Object.keys(studentsDB).forEach(id => {
+            const option = document.createElement("option");
+            option.value = id;
+            studentIdsDatalist.appendChild(option);
+        });
+    }
+    populateStudentIds();
+
+    // Enable/disable student ID input and toggle search icon
+    enableStudentSearchCheckbox.addEventListener("change", () => {
+        const enabled = enableStudentSearchCheckbox.checked;
+        studentIdInput.disabled = !enabled;
+        searchIcon.classList.toggle("active", enabled);
+        if (!enabled) {
+            studentIdInput.value = "";
+            facultySelect.value = "";
+            yearSelect.value = "";
+            facultySelect.disabled = false;
+            yearSelect.disabled = false;
+        } else {
+            facultySelect.disabled = true;
+            yearSelect.disabled = true;
+        }
+        clearReport();
+    });
+
+    // Search student by ID and autofill faculty and year
+    function searchStudentById(studentId) {
+        return new Promise((resolve, reject) => {
+            setTimeout(() => {
+                if (studentsDB[studentId]) {
+                    resolve(studentsDB[studentId]);
+                } else {
+                    reject("Student not found.");
+                }
+            }, 500);
+        });
+    }
+
+    // Handle search icon click or Enter key in student ID input
+    function handleStudentSearch() {
+        const studentId = studentIdInput.value.trim();
+        if (!studentId) {
+            showError("Please enter a Student ID to search.");
+            return;
+        }
+        showError("");
+        loading(true);
+        searchStudentById(studentId)
+            .then(student => {
+                facultySelect.value = student.faculty;
+                yearSelect.value = student.year;
+                loading(false);
+            })
+            .catch(err => {
+                showError(err);
+                facultySelect.value = "";
+                yearSelect.value = "";
+                loading(false);
+            });
+    }
+
+    searchIcon.addEventListener("click", handleStudentSearch);
+    studentIdInput.addEventListener("keydown", (e) => {
+        if (e.key === "Enter") {
+            e.preventDefault();
+            handleStudentSearch();
+        }
+    });
+
+    // Show/hide loading
+    function loading(show) {
+        loadingDiv.style.display = show ? "block" : "none";
+    }
+    // Show error message
+    function showError(msg) {
+        if (msg) {
+            errorDiv.textContent = msg;
+            errorDiv.style.display = "block";
+        } else {
+            errorDiv.textContent = "";
+            errorDiv.style.display = "none";
+        }
+    }
+
+    // Clear report display
+    function clearReport() {
+        reportTbody.innerHTML = "";
+        reportTable.style.display = "none";
+        chartContainer.style.display = "none";
+        downloadPDFBtn.style.display = "none";
+        if (pieChart) {
+            pieChart.destroy();
+            pieChart = null;
+        }
+        currentReportData = [];
+    }
+
+    // Simulate fetching attendance report from backend
+    function fetchAttendanceReport(filters) {
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                const students = Object.entries(studentsDB).map(([id, info]) => ({
+                    id,
+                    name: info.name,
+                    faculty: info.faculty,
+                    year: info.year,
+                }));
+
+                let filteredStudents = students.filter(s =>
+                    s.faculty === filters.faculty &&
+                    s.year === filters.year &&
+                    (filters.department ? filters.department === filters.department : true) &&
+                    (filters.courseModule ? filters.courseModule === filters.courseModule : true) &&
+                    (filters.semester ? filters.semester === filters.semester : true)
+                );
+
+                if (filters.studentId) {
+                    filteredStudents = filteredStudents.filter(s => s.id === filters.studentId);
+                }
+
+                // For demo, generate random attendance data for each student
+                const reportData = filteredStudents.map(s => {
+                    const totalDays = 10; // example total days in range
+                    const presentDays = Math.floor(Math.random() * (totalDays + 1));
+                    return {
+                        ...s,
+                        attendancePercent: ((presentDays / totalDays) * 100).toFixed(2),
+                        presentDays,
+                        absentDays: totalDays - presentDays,
+                    };
+                });
+
+                resolve(reportData);
+            }, 1000);
+        });
+    }
+
+    // Render report table
+    function renderReportTable(data) {
+        clearReport();
+        if (!data.length) {
+            showError("No attendance records found.");
+            return;
+        }
+        showError("");
+        data.forEach(({ id, name, attendancePercent, presentDays, absentDays }) => {
+            const tr = document.createElement("tr");
+            tr.innerHTML = `
+        <td>${id}</td>
+        <td>${name}</td>
+        <td>${attendancePercent}%</td>
+        <td>${presentDays}</td>
+        <td>${absentDays}</td>
+      `;
+            reportTbody.appendChild(tr);
+        });
+        reportTable.style.display = "table";
+    }
+
+    // Render pie chart for attendance summary
+    function renderPieChart(data) {
+        let totalPresent = 0;
+        let totalAbsent = 0;
+        data.forEach(d => {
+            totalPresent += d.presentDays;
+            totalAbsent += d.absentDays;
+        });
+
+        if (pieChart) pieChart.destroy();
+
+        const ctx = document.getElementById("attendancePieChart").getContext("2d");
+        pieChart = new Chart(ctx, {
+            type: "pie",
+            data: {
+                labels: ["Present", "Absent"],
+                datasets: [{
+                    data: [totalPresent, totalAbsent],
+                    backgroundColor: ["#28a745", "#dc3545"],
+                    hoverOffset: 20,
+                }],
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: "bottom",
+                        labels: { font: { size: 14 } }
+                    },
+                    tooltip: {
+                        callbacks: {
+                            label: ctx => `${ctx.label}: ${ctx.parsed} days`
+                        }
+                    }
+                }
+            }
+        });
+
+        chartContainer.style.display = "block";
+    }
+
+    // Generate PDF report using jsPDF
+    async function generatePDF(data) {
+        const { jsPDF } = window.jspdf;
+        const doc = new jsPDF();
+
+        doc.setFontSize(18);
+        doc.text("Attendance Report", 14, 22);
+
+        let startY = 30;
+        doc.setFontSize(12);
+        doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, startY);
+        startY += 10;
+
+        // Table headers
+        const headers = ["Student ID", "Name", "Attendance %", "Present Days", "Absent Days"];
+        const rows = data.map(d => [d.id, d.name, d.attendancePercent + "%", d.presentDays.toString(), d.absentDays.toString()]);
+
+        // Use jsPDF autoTable plugin if available
+        if (doc.autoTable) {
+            doc.autoTable({
+                startY,
+                head: [headers],
+                body: rows,
+                theme: 'striped',
+                styles: { fontSize: 10 },
+                headStyles: { fillColor: [0, 123, 255] },
+            });
+        } else {
+            // Basic fallback table (less pretty)
+            doc.text(headers.join(" | "), 14, startY);
+            startY += 8;
+            rows.forEach(row => {
+                doc.text(row.join(" | "), 14, startY);
+                startY += 8;
+            });
+        }
+
+        // Pie chart image
+        const canvas = document.getElementById("attendancePieChart");
+        const imgData = canvas.toDataURL("image/png");
+        doc.addPage();
+        doc.setFontSize(16);
+        doc.text("Attendance Summary", 14, 20);
+        doc.addImage(imgData, "PNG", 40, 30, 120, 120);
+
+        doc.save("Attendance_Report.pdf");
+    }
+
+    // Form submission handler
+    reportForm.addEventListener("submit", async (e) => {
+        e.preventDefault();
+        clearReport();
+        showError("");
+
+        // Validate date range
+        if (startDateInput.value > endDateInput.value) {
+            showError("Start Date cannot be after End Date.");
+            return;
+        }
+
+        // Gather filters
+        const filters = {
+            courseModule: courseModuleSelect.value,
+            year: yearSelect.value,
+            semester: semesterSelect.value,
+            faculty: facultySelect.value,
+            department: departmentSelect.value,
+            startDate: startDateInput.value,
+            endDate: endDateInput.value,
+            studentId: enableStudentSearchCheckbox.checked ? studentIdInput.value.trim() : null,
+        };
+
+        // If student search enabled, studentId must be filled
+        if (enableStudentSearchCheckbox.checked && !filters.studentId) {
+            showError("Please enter a Student ID to search.");
+            return;
+        }
+
+        loading(true);
+        try {
+            const reportData = await fetchAttendanceReport(filters);
+            currentReportData = reportData;
+            renderReportTable(reportData);
+            renderPieChart(reportData);
+            downloadPDFBtn.style.display = reportData.length ? "inline-block" : "none";
+        } catch (err) {
+            showError("Failed to fetch attendance data. Please try again.");
+        }
+        loading(false);
+    });
+
+    downloadPDFBtn.addEventListener("click", () => {
+        if (currentReportData.length) {
+            generatePDF(currentReportData);
+        }
+    });
+})();
+
+
+/*
+(() => {
   // API Configuration - Replace with your actual backend URLs
   const API_BASE_URL = 'http://localhost:3000/api'; // Change this to your backend URL
   
@@ -533,362 +893,5 @@
     loadStudentIds();
   });
 
-})();*/
-
-(() => {
-    // Mock data for dropdowns and students - replace with real API calls
-    const courseModules = ["Math 101", "Physics 201", "Chemistry 301"];
-    const years = ["2021", "2022", "2023"];
-    const semesters = ["1", "2", "3", "4", "5", "6"];
-    const faculties = ["Science", "Engineering", "Arts"];
-    const departments = ["Computer Science", "Mechanical", "Physics", "Chemistry"];
-
-    // Mock student database for search by ID
-    const studentsDB = {
-        "S001": { name: "Alice Johnson", faculty: "Science", year: "2022" },
-        "S002": { name: "Bob Smith", faculty: "Engineering", year: "2023" },
-        "S003": { name: "Charlie Lee", faculty: "Science", year: "2021" },
-        "S004": { name: "Diana Prince", faculty: "Arts", year: "2022" },
-        "S005": { name: "Ethan Hunt", faculty: "Engineering", year: "2021" },
-        "S006": { name: "Fiona Gallagher", faculty: "Science", year: "2023" },
-    };
-
-    // Elements
-    const courseModuleSelect = document.getElementById("courseModule");
-    const yearSelect = document.getElementById("year");
-    const semesterSelect = document.getElementById("semester");
-    const facultySelect = document.getElementById("faculty");
-    const departmentSelect = document.getElementById("department");
-    const startDateInput = document.getElementById("startDate");
-    const endDateInput = document.getElementById("endDate");
-    const enableStudentSearchCheckbox = document.getElementById("enableStudentSearch");
-    const studentIdInput = document.getElementById("studentId");
-    const searchIcon = document.getElementById("searchIcon");
-    const reportForm = document.getElementById("reportForm");
-    const loadingDiv = document.getElementById("loading");
-    const errorDiv = document.getElementById("error");
-    const reportTable = document.getElementById("reportTable");
-    const reportTbody = reportTable.querySelector("tbody");
-    const chartContainer = document.getElementById("chartContainer");
-    const downloadPDFBtn = document.getElementById("downloadPDF");
-    const studentIdsDatalist = document.getElementById("studentIds");
-
-    let pieChart = null;
-    let currentReportData = [];
-
-    // Populate dropdowns
-    function populateSelect(selectElem, options) {
-        options.forEach(opt => {
-            const option = document.createElement("option");
-            option.value = opt;
-            option.textContent = opt;
-            selectElem.appendChild(option);
-        });
-    }
-
-    populateSelect(courseModuleSelect, courseModules);
-    populateSelect(yearSelect, years);
-    populateSelect(semesterSelect, semesters);
-    populateSelect(facultySelect, faculties);
-    populateSelect(departmentSelect, departments);
-
-    // Populate datalist for student IDs
-    function populateStudentIds() {
-        Object.keys(studentsDB).forEach(id => {
-            const option = document.createElement("option");
-            option.value = id;
-            studentIdsDatalist.appendChild(option);
-        });
-    }
-    populateStudentIds();
-
-    // Enable/disable student ID input and toggle search icon
-    enableStudentSearchCheckbox.addEventListener("change", () => {
-        const enabled = enableStudentSearchCheckbox.checked;
-        studentIdInput.disabled = !enabled;
-        searchIcon.classList.toggle("active", enabled);
-        if (!enabled) {
-            studentIdInput.value = "";
-            facultySelect.value = "";
-            yearSelect.value = "";
-            facultySelect.disabled = false;
-            yearSelect.disabled = false;
-        } else {
-            facultySelect.disabled = true;
-            yearSelect.disabled = true;
-        }
-        clearReport();
-    });
-
-    // Search student by ID and autofill faculty and year
-    function searchStudentById(studentId) {
-        return new Promise((resolve, reject) => {
-            setTimeout(() => {
-                if (studentsDB[studentId]) {
-                    resolve(studentsDB[studentId]);
-                } else {
-                    reject("Student not found.");
-                }
-            }, 500);
-        });
-    }
-
-    // Handle search icon click or Enter key in student ID input
-    function handleStudentSearch() {
-        const studentId = studentIdInput.value.trim();
-        if (!studentId) {
-            showError("Please enter a Student ID to search.");
-            return;
-        }
-        showError("");
-        loading(true);
-        searchStudentById(studentId)
-            .then(student => {
-                facultySelect.value = student.faculty;
-                yearSelect.value = student.year;
-                loading(false);
-            })
-            .catch(err => {
-                showError(err);
-                facultySelect.value = "";
-                yearSelect.value = "";
-                loading(false);
-            });
-    }
-
-    searchIcon.addEventListener("click", handleStudentSearch);
-    studentIdInput.addEventListener("keydown", (e) => {
-        if (e.key === "Enter") {
-            e.preventDefault();
-            handleStudentSearch();
-        }
-    });
-
-    // Show/hide loading
-    function loading(show) {
-        loadingDiv.style.display = show ? "block" : "none";
-    }
-    // Show error message
-    function showError(msg) {
-        if (msg) {
-            errorDiv.textContent = msg;
-            errorDiv.style.display = "block";
-        } else {
-            errorDiv.textContent = "";
-            errorDiv.style.display = "none";
-        }
-    }
-
-    // Clear report display
-    function clearReport() {
-        reportTbody.innerHTML = "";
-        reportTable.style.display = "none";
-        chartContainer.style.display = "none";
-        downloadPDFBtn.style.display = "none";
-        if (pieChart) {
-            pieChart.destroy();
-            pieChart = null;
-        }
-        currentReportData = [];
-    }
-
-    // Simulate fetching attendance report from backend
-    function fetchAttendanceReport(filters) {
-        return new Promise((resolve) => {
-            setTimeout(() => {
-                const students = Object.entries(studentsDB).map(([id, info]) => ({
-                    id,
-                    name: info.name,
-                    faculty: info.faculty,
-                    year: info.year,
-                }));
-
-                let filteredStudents = students.filter(s =>
-                    s.faculty === filters.faculty &&
-                    s.year === filters.year &&
-                    (filters.department ? filters.department === filters.department : true) &&
-                    (filters.courseModule ? filters.courseModule === filters.courseModule : true) &&
-                    (filters.semester ? filters.semester === filters.semester : true)
-                );
-
-                if (filters.studentId) {
-                    filteredStudents = filteredStudents.filter(s => s.id === filters.studentId);
-                }
-
-                // For demo, generate random attendance data for each student
-                const reportData = filteredStudents.map(s => {
-                    const totalDays = 10; // example total days in range
-                    const presentDays = Math.floor(Math.random() * (totalDays + 1));
-                    return {
-                        ...s,
-                        attendancePercent: ((presentDays / totalDays) * 100).toFixed(2),
-                        presentDays,
-                        absentDays: totalDays - presentDays,
-                    };
-                });
-
-                resolve(reportData);
-            }, 1000);
-        });
-    }
-
-    // Render report table
-    function renderReportTable(data) {
-        clearReport();
-        if (!data.length) {
-            showError("No attendance records found.");
-            return;
-        }
-        showError("");
-        data.forEach(({ id, name, attendancePercent, presentDays, absentDays }) => {
-            const tr = document.createElement("tr");
-            tr.innerHTML = `
-        <td>${id}</td>
-        <td>${name}</td>
-        <td>${attendancePercent}%</td>
-        <td>${presentDays}</td>
-        <td>${absentDays}</td>
-      `;
-            reportTbody.appendChild(tr);
-        });
-        reportTable.style.display = "table";
-    }
-
-    // Render pie chart for attendance summary
-    function renderPieChart(data) {
-        let totalPresent = 0;
-        let totalAbsent = 0;
-        data.forEach(d => {
-            totalPresent += d.presentDays;
-            totalAbsent += d.absentDays;
-        });
-
-        if (pieChart) pieChart.destroy();
-
-        const ctx = document.getElementById("attendancePieChart").getContext("2d");
-        pieChart = new Chart(ctx, {
-            type: "pie",
-            data: {
-                labels: ["Present", "Absent"],
-                datasets: [{
-                    data: [totalPresent, totalAbsent],
-                    backgroundColor: ["#28a745", "#dc3545"],
-                    hoverOffset: 20,
-                }],
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: {
-                        position: "bottom",
-                        labels: { font: { size: 14 } }
-                    },
-                    tooltip: {
-                        callbacks: {
-                            label: ctx => `${ctx.label}: ${ctx.parsed} days`
-                        }
-                    }
-                }
-            }
-        });
-
-        chartContainer.style.display = "block";
-    }
-
-    // Generate PDF report using jsPDF
-    async function generatePDF(data) {
-        const { jsPDF } = window.jspdf;
-        const doc = new jsPDF();
-
-        doc.setFontSize(18);
-        doc.text("Attendance Report", 14, 22);
-
-        let startY = 30;
-        doc.setFontSize(12);
-        doc.text(`Generated on: ${new Date().toLocaleString()}`, 14, startY);
-        startY += 10;
-
-        // Table headers
-        const headers = ["Student ID", "Name", "Attendance %", "Present Days", "Absent Days"];
-        const rows = data.map(d => [d.id, d.name, d.attendancePercent + "%", d.presentDays.toString(), d.absentDays.toString()]);
-
-        // Use jsPDF autoTable plugin if available
-        if (doc.autoTable) {
-            doc.autoTable({
-                startY,
-                head: [headers],
-                body: rows,
-                theme: 'striped',
-                styles: { fontSize: 10 },
-                headStyles: { fillColor: [0, 123, 255] },
-            });
-        } else {
-            // Basic fallback table (less pretty)
-            doc.text(headers.join(" | "), 14, startY);
-            startY += 8;
-            rows.forEach(row => {
-                doc.text(row.join(" | "), 14, startY);
-                startY += 8;
-            });
-        }
-
-        // Pie chart image
-        const canvas = document.getElementById("attendancePieChart");
-        const imgData = canvas.toDataURL("image/png");
-        doc.addPage();
-        doc.setFontSize(16);
-        doc.text("Attendance Summary", 14, 20);
-        doc.addImage(imgData, "PNG", 40, 30, 120, 120);
-
-        doc.save("Attendance_Report.pdf");
-    }
-
-    // Form submission handler
-    reportForm.addEventListener("submit", async (e) => {
-        e.preventDefault();
-        clearReport();
-        showError("");
-
-        // Validate date range
-        if (startDateInput.value > endDateInput.value) {
-            showError("Start Date cannot be after End Date.");
-            return;
-        }
-
-        // Gather filters
-        const filters = {
-            courseModule: courseModuleSelect.value,
-            year: yearSelect.value,
-            semester: semesterSelect.value,
-            faculty: facultySelect.value,
-            department: departmentSelect.value,
-            startDate: startDateInput.value,
-            endDate: endDateInput.value,
-            studentId: enableStudentSearchCheckbox.checked ? studentIdInput.value.trim() : null,
-        };
-
-        // If student search enabled, studentId must be filled
-        if (enableStudentSearchCheckbox.checked && !filters.studentId) {
-            showError("Please enter a Student ID to search.");
-            return;
-        }
-
-        loading(true);
-        try {
-            const reportData = await fetchAttendanceReport(filters);
-            currentReportData = reportData;
-            renderReportTable(reportData);
-            renderPieChart(reportData);
-            downloadPDFBtn.style.display = reportData.length ? "inline-block" : "none";
-        } catch (err) {
-            showError("Failed to fetch attendance data. Please try again.");
-        }
-        loading(false);
-    });
-
-    downloadPDFBtn.addEventListener("click", () => {
-        if (currentReportData.length) {
-            generatePDF(currentReportData);
-        }
-    });
 })();
+*/
