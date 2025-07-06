@@ -1,7 +1,7 @@
-// footer.js
+
 function loadContent(page) {
     const contentArea = document.getElementById('contentArea');
-    // Load content based on the page parameter
+    
     switch(page) {
         case 'about':
             contentArea.innerHTML = '<h1>About Us</h1><p>Information about us.</p>';

@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
-    <link rel="stylesheet" href="../../styles/admin/student-managment.css">
+    <link rel="stylesheet" href="../../styles/admin/professor-management.css">
 </head>
 <body>
     <div class="managment-container">
         <div class="left-section">
             <div class="admin-opration-container">
-                <button style="background-color: rgba(171, 195, 215, 0.285);" >Student Management</button>
-                <button>Professor Managament</button>
+                <button>Student Managament</button>
+                <button style="background-color: rgba(171, 195, 215, 0.285);" >Professor Management</button>
                 <button>Create Course Unit</button>
                 <button>Generate Reports</button>
                 <button>Create User Admin</button>
@@ -42,20 +42,11 @@
                     <form action="" method="post" class="first-form-container">
                         <div class="input-container">
                             <label for="full-name">Full Name</label>
-                            <input type="text" name="fullName" id="full-name">
-                        </div>
-                        <div class="input-container">
-                            <label for="year">Year</label>
-                            <select name="year" id="year">
-                                <option>Select</option>
-                                <option value="2023">2022</option>
-                                <option value="2024">2023</option>
-                                <option value="2025">2024</option>
-                            </select>
+                            <input type="text" name="fullName" id="full-name" required>
                         </div>
                         <div class="input-container">
                             <label for="department">Department</label>
-                            <select name="department" id="department">
+                            <select name="department" id="department" required>
                                 <option>Select</option>
                                 <option value="CS">Computer Science</option>
                                 <option value="SE">Software Engineering</option>
@@ -63,27 +54,13 @@
                             </select>
                         </div>
                         <div class="input-container">
-                            <label for="regiNumber">Registration Number</label>
-                            <input type="text" name="regiNumber" id="regiNumber">
-                        </div>
-                        <div class="input-container">
-                            <label for="contactNumber">Contact Number</label>
-                            <input type="text" name="contactNumber" id="contactNumber">
-                        </div>
-                        <div class="input-container">
-                            <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
-                        </div>
-
-                    </form>
-                    <form action="" method="post" class="second-form-container">
-                        <div>
-                            <label for="email">Email address</label>
-                            <input type="email" name="email" id="email">
-                        </div>
-                        <div>
-                            <label for="indexNum">Index Number</label>
-                            <input type="text" name="index" id="index">
+                            <label for="subject">Subject</label>
+                            <select name="subject" id="subject" required>
+                                <option>Select</option>
+                                <option value="RAD">Rapid Application Development</option>
+                                <option value="WT">Web Technologies</option>
+                                <option value="AM">Advanced Maths</option>
+                            </select>
                         </div>
                         <div class="couse-module-container">
                             <label for="">Course Unit Modules</label>
@@ -100,6 +77,43 @@
                                 <label for="">Module 3</label>
                             </div>
                         </div>
+                        <div class="input-container">
+                            <label for="uniID">University ID Number</label>
+                            <input type="text" name="uniID" id="uniID">
+                        </div>
+                        <div class="input-container">
+                            <label for="designation">Designation</label>
+                            <input type="text" name="designation" id="designation" required>
+                        </div>
+
+                    </form>
+                    <form action="" method="post" class="second-form-container">
+                        
+                        <div class="input-container">
+                            <label for="contactNumber">Contact Number</label>
+                            <input type="tel" name="contactNumber" id="contactNumber" required>
+                        </div>
+                        <div class="input-container">
+                            <label for="address">Address</label>
+                            <input type="text" name="address" id="address">
+                        </div>
+                        <div>
+                            <label for="email">Email address</label>
+                            <input type="email" name="email" id="email" required>
+                        </div>
+                        <div>
+                            <label for="nicNO">NIC Number</label>
+                            <input type="text" name="nicNO" id="nicNO" required>
+                        </div>
+                        <div>
+                            <label for="status">Status</label>
+                            <select name="status" id="status" required>
+                                <option value="Active">Active</option>
+                                <option value="On Leave">On Leave</option>
+                                <option value="Retired">Retired</option>
+                                <option value="Resigned">Resigned</option>
+                            </select>
+                        </div>
                         <button type="submit">Submit</button>
                         <button>Update</button>
                         <button>Delete</button>
@@ -107,35 +121,35 @@
             </div>
             <div class="serach-container">
                 <div class="serach-box">
-                    <input type="text" name="search" class="serach-bar" placeholder="Enter Student Name">
+                    <input type="text" name="search" class="serach-bar" placeholder="Enter Professor Name">
                     <img src="../../assets/admin/student-managment/search.png" class="search-img">
                 </div>   
             </div>
             <div class="table-container">
                         <table border="1" >
                             <tr>
-                                <th>Index Number</th>
+                                <th>University ID Number</th>
                                 <th>Name</th>
-                                <th>Year</th>
                                 <th>Department</th>
-                                <th>Registration Number</th>
+                                <th>Subject</th>
+                                <th>Email</th>
                             </tr>
                             <tr>
-                                <td>22022</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                            </tr>
-                            <tr>
-                                <td>22022</td>
+                                <td>00001</td>
                                 <td>test</td>
                                 <td>test</td>
                                 <td>test</td>
                                 <td>test</td>
                             </tr>
                             <tr>
-                                <td>22022</td>
+                                <td>00002</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                                <td>test</td>
+                            </tr>
+                            <tr>
+                                <td>00003</td>
                                 <td>test</td>
                                 <td>test</td>
                                 <td>test</td>
@@ -145,6 +159,6 @@
             </div>
         </div>
     </div>
-    <script src="../../controller/admin/student-managment.js"></script>
+    <script src=""></script>
 </body>
 </html>
