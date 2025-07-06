@@ -27,7 +27,20 @@ header{
     position: relative;
     margin-right: 50px;
 }
-.logo-button,
+.logo-button
+{
+    background-color: transparent;
+    border: none;
+    padding: 20px;
+    cursor: pointer;
+}
+.logo-button img {
+     width: 110px;
+     height: auto;
+     padding-top: 20px;
+     position: relative;
+   }
+
 .login-button{
     width: 199.9px;
     height: 51.7px;
@@ -39,7 +52,6 @@ header{
 }
 
 
-.logo-button:hover,
 .login-button:hover{
     background-color: white;
     color: rgba(45, 54, 72, 1);
