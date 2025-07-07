@@ -52,27 +52,28 @@ body {
     .all-form-controller{
         flex-direction: column;
     }
-    .all-form-controller form{
+    .all-form-controller div{
         width: 100%;
     }
 }
 
-.all-form-controller form{
+.first-form-container,
+.second-form-container{
     flex: 1 1 45%;
     border: 1px solid #333;
     border-radius: 10px;
     padding: 20px;
 }
 
-.all-form-controller form input,
-.all-form-controller form select{
+.all-form-controller div input,
+.all-form-controller div select{
     width: 100%;
     padding: 8px;
     margin-bottom: 12px;
     border: 1px solid #aaa;
     border-radius: 4px;
 }
-.all-form-controller form button{
+.all-form-controller div button{
     display: block;
     width: 150px;
     padding: 10px;
