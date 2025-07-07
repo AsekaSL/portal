@@ -38,8 +38,9 @@
                     <div>Profile</div>
                 </div>
             </div>
-            <div class="all-form-controller">
-                    <form action="" method="post" class="first-form-container">
+            <form action="./student-management.php" method="post" class="all-form-controller">
+                
+                    <div  class="first-form-container">
                         <div class="input-container">
                             <label for="full-name">Full Name</label>
                             <input type="text" name="fullName" id="full-name">
@@ -75,8 +76,8 @@
                             <input type="text" name="address" id="address">
                         </div>
 
-                    </form>
-                    <form action="" method="post" class="second-form-container">
+                    </div>
+                    <div  class="second-form-container">
                         <div>
                             <label for="email">Email address</label>
                             <input type="email" name="email" id="email">
@@ -103,8 +104,9 @@
                         <button type="submit">Submit</button>
                         <button>Update</button>
                         <button>Delete</button>
-                    </form>
-            </div>
+                    </div>
+                
+            </form>
             <div class="serach-container">
                 <div class="serach-box">
                     <input type="text" name="search" class="serach-bar" placeholder="Enter Student Name">
@@ -148,3 +150,26 @@
     <script src="../../controller/admin/student-managment.js"></script>
 </body>
 </html>
+
+<?php 
+    include(__DIR__ . '/../../config/dbConnection.php');
+
+    $fullName = $_POST['fullName'];
+    $year = $_POST['year'];
+    $department = $_POST['department'];
+    $regiNumber = $_POST['regiNumber'];
+    $contactNumber = $_POST['contactNumber'];
+    $address = $_POST['address'];
+
+
+    // Step 3: Insert query
+    $sql = "INSERT INTO student (full_name, regi_num, year, contact_num, address) VALUES ('$fullName', '$regiNumber', '$year', '$contactNumber', '$address');";
+
+    // Step 4: Run query
+    if ($connection->query($sql) === TRUE) {
+        echo "New record inserted successfully";
+    } else {
+        echo "Error: " . $connection->error;
+    }
+
+?>
