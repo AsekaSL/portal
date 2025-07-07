@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create new Attendance Session</title>
+    <link rel="stylesheet" href="../../styles/qr-code-scanning/create-qr-session.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="session-container">
+        <div class="session-box">
+            <div class="session-card">
+                <div class="session-title">Create New Attendance Session</div>
+            <div>
+                <div class="session-text-container">Course Name</div>
+                <select name="" id="" class="session-input-caontiner">
+                    <option value="">Select Course</option>
+                    <option value="Web Teachonology">Web Teachonology</option>
+                    <option value="Artificial Intelligence">Artificial Intelligence</option>
+                </select>
+            </div>
+            <div class="title-time-container">
+                <div>
+                    <div class="session-text-container">Lecture Title</div>
+                    <input class="session-input-caontiner" type="text" name="lecture-title" placeholder="Enter Lecture title">
+                </div>
+                <div>
+                    <div class="session-text-container">QR Valid Time</div>
+                    <input class="session-input-caontiner" type="time" name="lecture-time">
+                </div>
+            </div>
+            <div>
+                <div class="session-text-container">Date</div>
+                <input type="date" name="lecture-date" class="session-input-caontiner" placeholder="Enter Date">
+            </div>
+            <button class="generate-button">
+                Generate QR Code
+            </button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
