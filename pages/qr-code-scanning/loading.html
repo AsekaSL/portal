@@ -5,15 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Approved</title>
     <link rel="stylesheet" href="../../styles/qr-code-scanning/loading.css">
+    <link rel="stylesheet" href="../../styles/qr-code-scanning/decline.css">
+    <link rel="stylesheet" href="../../styles/qr-code-scanning/approved.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="loading-container">
+    <div id="loading-container" class="loading-container">
         <div class="loader-title">Verifying Attendence...</div>
         <div class="loader"></div>
         <div class="loader-info">Please wait while we process your scan.</div>
     </div>
+    <script src="../../controller/qr-code/loading-qr.js"></script>
 </body>
 </html>
