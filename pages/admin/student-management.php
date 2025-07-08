@@ -1,3 +1,6 @@
+<?php
+    include("/xampp/htdocs/portal/config/dbConnection.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -38,72 +41,55 @@
                     <div>Profile</div>
                 </div>
             </div>
-            <form action="./student-management.php" method="post" class="all-form-controller">
+            <form id="userForm" method="post" class="all-form-controller">
                 
                     <div  class="first-form-container">
                         <div class="input-container">
-                            <label for="full-name">Full Name</label>
-                            <input type="text" name="fullName" id="full-name">
+                            <label for="full_name">Full Name</label>
+                            <input type="text" name="full_name" id="full_name" >
                         </div>
                         <div class="input-container">
                             <label for="year">Year</label>
-                            <select name="year" id="year">
+                            <select name="year" id="year" >
                                 <option>Select</option>
-                                <option value="2023">2022</option>
-                                <option value="2024">2023</option>
-                                <option value="2025">2024</option>
+                                <option value="2022">2022</option>
+                                <option value="2023">2023</option>
+                                <option value="2024">2024</option>
                             </select>
                         </div>
                         <div class="input-container">
                             <label for="department">Department</label>
-                            <select name="department" id="department">
+                            <select name="dep_id" id="department" >
                                 <option>Select</option>
-                                <option value="CS">Computer Science</option>
-                                <option value="SE">Software Engineering</option>
-                                <option value="IS">Information System</option>
                             </select>
                         </div>
                         <div class="input-container">
-                            <label for="regiNumber">Registration Number</label>
-                            <input type="text" name="regiNumber" id="regiNumber">
+                            <label for="regi_Num">Registration Number</label>
+                            <input type="text" name="regi_num" id="regi_num" >
                         </div>
                         <div class="input-container">
                             <label for="contactNumber">Contact Number</label>
-                            <input type="text" name="contactNumber" id="contactNumber">
+                            <input type="text" name="contact_num" id="contact_num" >
                         </div>
                         <div class="input-container">
                             <label for="address">Address</label>
-                            <input type="text" name="address" id="address">
+                            <input type="text" name="address" id="address" >
                         </div>
 
                     </div>
                     <div  class="second-form-container">
                         <div>
                             <label for="email">Email address</label>
-                            <input type="email" name="email" id="email">
+                            <input type="email" name="email" id="email" >
                         </div>
                         <div>
                             <label for="indexNum">Index Number</label>
-                            <input type="text" name="index" id="index">
+                            <input type="text" name="index_num" id="index_num" required>
                         </div>
-                        <div class="couse-module-container">
-                            <label for="">Course Unit Modules</label>
-                            <div>
-                                <input type="checkbox" name="" id="">
-                                <label for="">Module 1</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="" id="">
-                                <label for="">Module 2</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="" id="">
-                                <label for="">Module 3</label>
-                            </div>
-                        </div>
-                        <button type="submit">Submit</button>
-                        <button>Update</button>
-                        <button>Delete</button>
+                        <button class="submit-button">Submit</button>
+                        <button type="button" onclick="serachStudent();">Search</button>
+                        <button type="button" onclick="upadateStudent();">Update</button>
+                        <button type="button" onclick="deleteStudent();">Delete</button>
                     </div>
                 
             </form>
@@ -114,34 +100,9 @@
                 </div>   
             </div>
             <div class="table-container">
-                        <table border="1" >
-                            <tr>
-                                <th>Index Number</th>
-                                <th>Name</th>
-                                <th>Year</th>
-                                <th>Department</th>
-                                <th>Registration Number</th>
-                            </tr>
-                            <tr>
-                                <td>22022</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                            </tr>
-                            <tr>
-                                <td>22022</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                            </tr>
-                            <tr>
-                                <td>22022</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
-                                <td>test</td>
+                        <table border="1" id="student-table" >
+                            <tr >
+                                <td colspan="5">There no any data</td>
                             </tr>
                         </table>
             </div>
@@ -150,26 +111,3 @@
     <script src="../../controller/admin/student-managment.js"></script>
 </body>
 </html>
-
-<?php 
-    include(__DIR__ . '/../../config/dbConnection.php');
-
-    $fullName = $_POST['fullName'];
-    $year = $_POST['year'];
-    $department = $_POST['department'];
-    $regiNumber = $_POST['regiNumber'];
-    $contactNumber = $_POST['contactNumber'];
-    $address = $_POST['address'];
-
-
-    // Step 3: Insert query
-    $sql = "INSERT INTO student (full_name, regi_num, year, contact_num, address) VALUES ('$fullName', '$regiNumber', '$year', '$contactNumber', '$address');";
-
-    // Step 4: Run query
-    if ($connection->query($sql) === TRUE) {
-        echo "New record inserted successfully";
-    } else {
-        echo "Error: " . $connection->error;
-    }
-
-?>
