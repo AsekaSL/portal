@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="../../styles/qr-code-scanning/create-qr-session.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="../../styles/qr-code-scanning/genarated-qr.css">
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -16,7 +17,7 @@
                 <div class="session-title">Create New Attendance Session</div>
             <div>
                 <div class="session-text-container">Course Name</div>
-                <select name="" id="" class="session-input-caontiner">
+                <select name="" id="course" class="session-input-caontiner">
                     <option value="">Select Course</option>
                     <option value="Web Teachonology">Web Teachonology</option>
                     <option value="Artificial Intelligence">Artificial Intelligence</option>
@@ -25,22 +26,25 @@
             <div class="title-time-container">
                 <div>
                     <div class="session-text-container">Lecture Title</div>
-                    <input class="session-input-caontiner" type="text" name="lecture-title" placeholder="Enter Lecture title">
+                    <input class="session-input-caontiner" id="lecture-title" type="text" name="lecture-title" placeholder="Enter Lecture title" required>
                 </div>
                 <div>
                     <div class="session-text-container">QR Valid Time</div>
-                    <input class="session-input-caontiner" type="time" name="lecture-time">
+                    <input class="session-input-caontiner" id="time" type="time" name="lecture-time" required>
                 </div>
             </div>
             <div>
                 <div class="session-text-container">Date</div>
-                <input type="date" name="lecture-date" class="session-input-caontiner" placeholder="Enter Date">
+                <input type="date" name="lecture-date" id="date" class="session-input-caontiner" placeholder="Enter Date" required>
             </div>
-            <button class="generate-button">
+            <button class="generate-button" id="generateButton">
                 Generate QR Code
             </button>
+            
             </div>
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="../../controller/qr-code/genatrate-qr.js"></script>
 </body>
 </html>
