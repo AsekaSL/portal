@@ -2,7 +2,7 @@
     $servername = "localhost";
     $username = "root";
     $password = "";
-    $database = "attendance_portal";
+    $database = "portal";
 
     $connection = new mysqli($servername, $username, $password, $database);
 ?>
