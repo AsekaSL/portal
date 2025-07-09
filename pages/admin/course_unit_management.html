@@ -32,24 +32,24 @@
 
             <div class="main-box">
                 <div class="info-box">
-                    <input type="text" class="input" placeholder="Course Code">
-                    <input type="text" class="input" placeholder="Course Description">
-                    <input type="text" class="input" placeholder="Department">
-                    <input type="text" class="input" placeholder="Semester">
-                    <input type="text" class="input" placeholder="Status">
-                    <input type="text" class="input" placeholder="Assigned Professor">
-                    <input type="text" class="input" placeholder="Course Name">
+                    <input type="text" class="input" placeholder="Course Code" id="courseCode">
+                    <input type="text" class="input" placeholder="Course Description" id="courseDesc">
+                    <input type="text" class="input" placeholder="Department" id="department">
+                    <input type="text" class="input" placeholder="Semester" id="semester">
+                    <input type="text" class="input" placeholder="Status" id="status">
+                    <input type="text" class="input" placeholder="Assigned Professor" id="professor">
+                    <input type="text" class="input" placeholder="Course Name" id="courseName">
                 </div>
                 <div class="info-box">
-                    <input type="text" class="input" placeholder="Faculty">
-                    <input type="text" class="input" placeholder="Credits">
-                    <input type="text" class="input" placeholder="Year Offered">
-                    <input type="text" class="input" placeholder="Prerequisites">
+                    <input type="text" class="input" placeholder="Faculty" id="faculty">
+                    <input type="text" class="input" placeholder="Credits" id="credits">
+                    <input type="text" class="input" placeholder="Year Offered" id="year">
+                    <input type="text" class="input" placeholder="Prerequisites" id="prerequisites">
                     <label for="course-schedule">Course Schedule (Starting date)</label>
-                    <input type="date" class="input" placeholder="" id="course-schedule">
+                    <input type="date" class="input" placeholder="" id="course-schedule" id="schedule">
                     
                     <div class="button-box">
-                        <button>Add</button>
+                        <button onclick="addCourse()">Add</button>
                         <button>Update</button>
                         <button>Delete</button>
                     </div>
