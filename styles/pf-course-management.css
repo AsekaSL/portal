@@ -1,0 +1,94 @@
+.course-manage {
+  font-family: Arial, sans-serif;
+  background-color: #f4f6f9;
+  margin: 0;
+  padding: 0;
+}
+
+.profe-course-header {
+  background-color: #2a4d97;
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+.profe-course-header-title {
+  margin: 0;
+}
+
+
+
+.profe-course-main-content {
+  padding: 20px;
+}
+
+.pf-section-title {
+  color: #2c3e50;
+}
+
+.pf-course-form {
+  background-color: #fff;
+  padding: 15px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pf-course-form-label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.pf-form-input {
+  padding: 8px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 10px;
+}
+
+.pf-btn {
+  padding: 8px 15px;
+  background-color: #2980b9;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.pf-btn:hover {
+  background-color: #3498db;
+}
+
+.pf-course-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
+.pf-course-table th, 
+.pf-course-table td {
+  padding: 12px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+.pf-btn-action {
+  margin-right: 5px;
+  padding: 5px 10px;
+  background-color: #27ae60;
+  border: none;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.action.btn-delete {
+  background-color: #c0392b;
+}
+
+.pf-btn-action:hover {
+  opacity: 0.9;
+}
