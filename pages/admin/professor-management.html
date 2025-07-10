@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Dashboard</title>
+    <link rel="icon" href="../../assets/admin/student-managment/LOGO.png">
     <link rel="stylesheet" href="../../styles/admin/professor-management.css">
 </head>
 <body>
@@ -46,36 +47,18 @@
                         </div>
                         <div class="input-container">
                             <label for="department">Department</label>
-                            <select name="department" id="department" required>
+                            <select name="department" id="department" required onchange="updateSubjects()">
                                 <option>Select</option>
                                 <option value="CS">Computer Science</option>
                                 <option value="SE">Software Engineering</option>
-                                <option value="IS">Information System</option>
+                                <option value="IS">Ionformation Systems</option>
                             </select>
                         </div>
                         <div class="input-container">
                             <label for="subject">Subject</label>
                             <select name="subject" id="subject" required>
-                                <option>Select</option>
-                                <option value="RAD">Rapid Application Development</option>
-                                <option value="WT">Web Technologies</option>
-                                <option value="AM">Advanced Maths</option>
+                                <option value="">Select</option>
                             </select>
-                        </div>
-                        <div class="couse-module-container">
-                            <label for="">Course Unit Modules</label>
-                            <div>
-                                <input type="checkbox" name="" id="">
-                                <label for="">Module 1</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="" id="">
-                                <label for="">Module 2</label>
-                            </div>
-                            <div>
-                                <input type="checkbox" name="" id="">
-                                <label for="">Module 3</label>
-                            </div>
                         </div>
                         <div class="input-container">
                             <label for="uniID">University ID Number</label>
@@ -85,14 +68,14 @@
                             <label for="designation">Designation</label>
                             <input type="text" name="designation" id="designation" required>
                         </div>
-
-                    </form>
-                    <form action="" method="post" class="second-form-container">
-                        
                         <div class="input-container">
                             <label for="contactNumber">Contact Number</label>
                             <input type="tel" name="contactNumber" id="contactNumber" required>
                         </div>
+
+                    </form>
+                    <form action="" method="post" class="second-form-container">
+                        
                         <div class="input-container">
                             <label for="address">Address</label>
                             <input type="text" name="address" id="address">
@@ -159,6 +142,28 @@
             </div>
         </div>
     </div>
-    <script src=""></script>
+    <script >
+        const subjectOptions= {
+            CS: ["Data Communication & Networks","Operating Systems","Statistical Distribution and Inferences","Artificial Intelligence","Web Technologies","Group Project","Mathematics for Computing"],
+            SE: ["Essentials of Computer Law","Software Design and Architecture","Formal Methods in software Development","Essentials in Computer Networking","Artificial Intelligence","Web Technologies","Group Project","Mathematics for Computing"],
+            IS: ["Statistical Distribution and Inferences","Operations Management","Information Systems Security","Marketing Management","System Administration and Maintenance","Business Process Management","Organizational Behaviour and Society"]
+        }
+        function updateSubjects() {
+            const departmentSelect = document.getElementById("department");
+            const subjectSelect = document.getElementById("subject");
+
+            const selectedDepartment = departmentSelect.value;
+            subjectSelect.innerHTML = '<option value="">Select</option>';
+
+            if (subjectOptions[selectedDepartment]) {
+                subjectOptions[selectedDepartment].forEach(subject => {
+                    const option = document.createElement("option");
+                    option.value = subject;
+                    option.textContent = subject;
+                    subjectSelect.appendChild(option);
+                });
+            }
+        }
+    </script>
 </body>
 </html>
