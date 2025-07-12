@@ -1,0 +1,66 @@
+body {
+  background-color: #f4f0fa;
+  font-family: Arial;
+  color: #3a0057;
+}
+
+.container {
+  width: 90%;
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border: 2px solid #a66cff;
+  border-radius: 10px;
+}
+
+h1 {
+  text-align: center;
+  color: #5a00b3;
+}
+
+form {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+form input, form button {
+  flex: 1 1 48%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+form button {
+  background-color: #7b2cbf;
+  color: white;
+  cursor: pointer;
+}
+
+#searchBox {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 5px;
+}
+
+#professorList .card {
+  background: #f5edff;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-left: 5px solid #9d4edd;
+  border-radius: 5px;
+}
+
+.card button {
+  margin-right: 10px;
+  background: #7b2cbf;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+}
