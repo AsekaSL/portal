@@ -61,3 +61,20 @@ async function deleteProfessor(id) {
   alert(await res.text());
   loadProfessors();
 }
+
+function loadDepartments() {
+  fetch("../../config/admin/get_departments.php")
+    .then(res => res.json())
+    .then(data => {
+      const dropdown = document.getElementById("lecture_dep_id");
+      data.forEach(dep => {
+        const option = document.createElement("option");
+        option.value = dep.lecture_id;
+        option.textContent = dep.name;
+        dropdown.appendChild(option);
+      });
+    })
+    .catch(err => console.error("Error loading departments:", err));
+}
+
+document.addEventListener("DOMContentLoaded", loadDepartments);
