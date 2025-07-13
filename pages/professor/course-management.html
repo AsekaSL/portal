@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Professor Dashboard - Course Unit Management</title>
+  <link rel="stylesheet" href="/styles/pf-course-management.css">
+</head>
+<body class="course-manage">
+  <header class="profe-course-header">
+    <h1 class="profe-course-header-title">Course Unit Management System</h1>
+  </header>
+
+  <main class="profe-course-main-content">
+    <h2 class="pf-section-title">Add / Update Course Unit</h2>
+    <form id="courseForm" class="pf-course-form">
+      <input type="hidden" id="courseId">
+      <label class="pf-course-form-label">Course Code</label>
+      <input type="text" id="code" class="pf-form-input" placeholder="e.g., CS101" required>
+      <label class="pf-course-form-label">Course Name</label>
+      <input type="text" id="name" class="pf-form-input" placeholder="e.g., Introduction to Computing" required>
+      <label class="pf-course-form-label">Credits</label>
+      <input type="number" id="credits" class="pf-form-input" placeholder="e.g., 3" required>
+      <button type="submit" class="pf-btn">Save Course</button>
+    </form>
+
+    <h2 class="pf-section-title">Course Unit List</h2>
+    <table class="pf-course-table">
+      <thead>
+        <tr>
+          <th>Code</th>
+          <th>Name</th>
+          <th>Credits</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="courseTableBody">
+        <!-- Courses will appear here -->
+      </tbody>
+    </table>
+  </main>
+
+  <script>
+    let courses = [];
+    let editIndex = null;
+
+    const courseForm = document.getElementById('courseForm');
+    const courseTableBody = document.getElementById('courseTableBody');
+
+    courseForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const code = document.getElementById('code').value;
+      const name = document.getElementById('name').value;
+      const credits = document.getElementById('credits').value;
+
+      if (editIndex !== null) {
+        courses[editIndex] = { code, name, credits };
+        editIndex = null;
+      } else {
+        courses.push({ code, name, credits });
+      }
+
+      renderTable();
+      courseForm.reset();
+    });
+
+    function renderTable() {
+      courseTableBody.innerHTML = "";
+      courses.forEach((course, index) => {
+        const row = document.createElement('tr');
+        row.innerHTML = `
+          <td>${course.code}</td>
+          <td>${course.name}</td>
+          <td>${course.credits}</td>
+          <td>
+            <button class="pf-btn-action" onclick="editCourse(${index})">Update</button>
+            <button class="pf-btn-action btn-delete" onclick="deleteCourse(${index})">Delete</button>
+          </td>
+        `;
+        courseTableBody.appendChild(row);
+      });
+    }
+
+    function editCourse(index) {
+      const course = courses[index];
+      document.getElementById('code').value = course.code;
+      document.getElementById('name').value = course.name;
+      document.getElementById('credits').value = course.credits;
+      editIndex = index;
+    }
+
+    function deleteCourse(index) {
+      if (confirm("Are you sure you want to delete this course?")) {
+        courses.splice(index, 1);
+        renderTable();
+      }
+    }
+  </script>
+</body>
+</html>
