@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Professor Dashboard - Notifications</title>
+  <link rel="stylesheet" href="professor-notifications.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-bell"></i>Professor Notification Panel</h1>
+      <div class="header-actions">
+        <button class="btn btn-secondary" onclick="goBack()"><i class="fas fa-arrow-left"></i>Back</button>
+        <button class="btn btn-primary" onclick="markAllAsRead()"><i class="fas fa-check-double"></i>Mark All Read</button>
+        <button class="btn btn-secondary" onclick="refreshNotifications()"><i class="fas fa-sync-alt"></i>Refresh</button>
+      </div>
+    </div>
+
+    <div class="notification-stats">
+      <div class="stats-grid">
+        <div class="stat-card"><div class="stat-icon unread"><i class="fas fa-envelope"></i></div><div class="stat-info"><h4 id="unreadCount">0</h4><p>Unread</p></div></div>
+        <div class="stat-card"><div class="stat-icon total"><i class="fas fa-bell"></i></div><div class="stat-info"><h4 id="totalCount">0</h4><p>Total</p></div></div>
+        <div class="stat-card"><div class="stat-icon warning"><i class="fas fa-exclamation-triangle"></i></div><div class="stat-info"><h4 id="alertCount">0</h4><p>Alerts</p></div></div>
+        <div class="stat-card"><div class="stat-icon system"><i class="fas fa-cog"></i></div><div class="stat-info"><h4 id="systemCount">0</h4><p>System</p></div></div>
+      </div>
+    </div>
+
+    <div class="filter-tabs">
+      <button class="tab-btn active" data-filter="all" onclick="filterNotifications('all')"><i class="fas fa-list"></i>All</button>
+      <button class="tab-btn" data-filter="unread" onclick="filterNotifications('unread')"><i class="fas fa-envelope"></i>Unread</button>
+      <button class="tab-btn" data-filter="important" onclick="filterNotifications('important')"><i class="fas fa-star"></i>Important</button>
+      <button class="tab-btn" data-filter="system" onclick="filterNotifications('system')"><i class="fas fa-cog"></i>System</button>
+    </div>
+
+    <div id="loadingSpinner" class="loading-spinner" style="display: none;"><i class="fas fa-spinner fa-spin"></i><p>Loading...</p></div>
+    <div id="errorMessage" class="error-message" style="display: none;"><i class="fas fa-exclamation-triangle"></i><span id="errorText"></span></div>
+
+    <div class="notifications-container">
+      <div id="notificationsList" class="notifications-list"></div>
+    </div>
+  </div>
+
+  <div id="notificationModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Notification Details</h3>
+        <button class="close-btn" onclick="closeModal()"><i class="fas fa-times"></i></button>
+      </div>
+      <div class="modal-body">
+        <div class="notification-detail">
+          <div class="detail-header">
+            <div class="detail-subject" id="modalSubject"></div>
+            <div class="detail-timestamp" id="modalTimestamp"></div>
+          </div>
+          <div class="detail-type" id="modalType"></div>
+          <div class="detail-message" id="modalMessage"></div>
+          <div class="detail-actions">
+            <button class="btn btn-primary" id="modalMarkRead" onclick="markNotificationAsRead()"><i class="fas fa-check"></i>Mark as Read</button>
+            <button class="btn btn-secondary" onclick="dismissNotification()"><i class="fas fa-trash"></i>Dismiss</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="professor-notifications.js"></script>
+</body>
+</html>
