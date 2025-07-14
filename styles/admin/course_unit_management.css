@@ -1,0 +1,218 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #ffffff;
+    max-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    display: flex;
+}
+
+.sidebar {
+    height: 100vh;
+    width: 300px;
+    background-color: #7761f457;
+    position: relative;
+    border-right: 3px solid #7861F4;
+}
+
+.logout {
+    width: 100%;
+    height: 100px;
+    background-color: #7761f457;
+    margin-bottom: 0;
+    position: absolute;
+    bottom: 45px;
+}
+
+.links {
+    background-color: #7861F4;
+    width: 100%;
+    height: 60px;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.links:hover {
+    transform: scale(1.1);
+    transition: all 0.3s ease;
+    border-radius: 0 10px 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.main-content {
+    background-color: #ffffff;
+    width: 100%;
+}
+
+.header {
+    background-color: #7761f457;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 120px;
+}
+
+.profile {
+    height: 90px;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.img {
+    background-image: url("../../assets/admin/student-managment/image.png");
+    background-size: cover;
+    border-radius: 50%;
+    height: 60px;
+    width: 60px;
+}
+
+.main-box {
+    background-color: #7761f41f;
+    height: 60%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.search-box-row {
+    background-color: #ffffff;
+    height: 60px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.search-box {
+    display: flex;
+    height: 50px;
+    background-color: #ffffff;
+    border-radius: 25px;
+    margin-right: 7%;
+}
+
+.search {
+    padding-left: 30px;
+    padding-right: 30px;
+    border-radius: 25px;
+    border-style: none;
+    background-color: #f4e4fd;
+}
+
+.search-icon {
+    background-image: url("../../assets/admin/Icons/search.svg");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.table {
+    display: flex;
+    justify-content: center;
+}
+
+table {
+    text-align: center;
+    width: 80%;
+    height: 150px;
+    border-collapse: collapse;
+    margin-top: 30px;
+}
+
+
+th, td {
+    border: 2px solid #ffffff;
+}
+
+th {
+    background-color: #c7c8f0;
+}
+
+td {
+    background-color: #e8e1fc;
+}
+
+.info-box {
+    width: 40%;
+    max-width: 500px;
+    height: 90%;
+    background-color: #7761f4a6;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.input {
+    width: 90%;
+    height: 8%;
+    padding-left: 15px;
+}
+
+.input:focus {
+    background-color: #dbd6f8;
+}
+
+label {
+    margin-left: 25px;
+    margin-right: auto;
+    margin-bottom: 2px;
+    margin-top: 10px;
+    color: rgb(88, 47, 47);
+    font-size: small;
+}
+
+#course-schedule {
+    margin-top: -30px;
+}
+
+.button-box {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+}
+
+.button-box button {
+    padding: 6px 15px;
+    width: 25%;
+    border-radius: 25px;
+    border: none;
+}
+
+.button-box button:hover {
+    transform: scale(1.1);
+    background-color: #e0e0f1;
+    transition: all 0.3s ease;
+}
+
+.heading {
+    color: #1F2937;
+}
+
+.caption {
+    margin-left: -22px;
+    font-weight: bold;
+}

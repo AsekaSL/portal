@@ -1,0 +1,42 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Outfit", sans-serif;
+}
+.decline-container{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    align-items: center;
+    justify-content: start;
+    padding: 150px;
+    
+}
+
+.decline-title{
+  font-size: 40px; 
+  padding-bottom: 20px;
+  color: #FF0000;
+}
+
+.decline-info{
+  padding-top: 20px;
+}
+
+@media (max-width: 1000px) {
+  .decline-title{
+    font-size: 25px; 
+    padding-bottom: 20px;
+  }
+  .decline-img{
+    width: 150px;
+  }
+}
+
+@media (max-width: 750px) {
+  .decline-title{
+    font-size: 20px; 
+    padding-bottom: 20px;
+  }
+}
