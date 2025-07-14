@@ -33,7 +33,6 @@ async function loadNotifications() {
     notifications = data.notifications || [];
     */
 
-    // Mock data
     notifications = [
       {
         id: 101,
