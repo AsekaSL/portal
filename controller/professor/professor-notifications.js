@@ -1,4 +1,4 @@
-const API_BASE_URL = 'http://localhost:3000/api'; // replace with actual backend
+const API_BASE_URL = 'http://localhost:3000/api'; 
 const PROFESSOR_ID = localStorage.getItem('professorId') || 'p001';
 
 let notifications = [];
