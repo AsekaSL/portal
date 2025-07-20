@@ -1,3 +1,8 @@
+<?php
+$userRole = $_SESSION['role'] ?? null; // 'Admin', 'Professor', 'Student', or null
+$isLoggedIn = isset($_SESSION['username']);
+?>
+
 <header class="main-header">
     <div class="header-container">
         <!-- Logo Section -->
@@ -45,32 +50,6 @@
                 <i class="fas fa-bell"></i>
                 <span class="notification-badge">3</span>
             </button>
-            <div class="user-menu">
-                <button class="user-profile-btn">
-                    <i class="fas fa-user-circle"></i>
-                    <span>Admin</span>
-                    <i class="fas fa-chevron-down"></i>
-                </button>
-                <div class="dropdown-menu">
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-user"></i>
-                        Profile
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-cog"></i>
-                        Settings
-                    </a>
-                    <a href="#" class="dropdown-item">
-                        <i class="fas fa-question-circle"></i>
-                        Help
-                    </a>
-                    <hr class="dropdown-divider">
-                    <a href="#" class="dropdown-item logout">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Logout
-                    </a>
-                </div>
-            </div>
             <a href="?page=login" style="text-decoration: none;">
                 <button class="login-button">
                     <i class="fas fa-sign-in-alt"></i>
@@ -88,30 +67,3 @@
         </button>
     </div>
 </header>
-
-<!-- Search Overlay -->
-<div class="search-overlay">
-    <div class="search-container">
-        <div class="search-box">
-            <i class="fas fa-search"></i>
-            <input type="text" placeholder="Search students, courses, or content...">
-            <button class="search-close">
-                <i class="fas fa-times"></i>
-            </button>
-        </div>
-        <div class="search-suggestions">
-            <div class="suggestion-item">
-                <i class="fas fa-user-graduate"></i>
-                <span>Student Records</span>
-            </div>
-            <div class="suggestion-item">
-                <i class="fas fa-book"></i>
-                <span>Course Management</span>
-            </div>
-            <div class="suggestion-item">
-                <i class="fas fa-chart-bar"></i>
-                <span>Reports & Analytics</span>
-            </div>
-        </div>
-    </div>
-</div>
