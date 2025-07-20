@@ -1,13 +1,16 @@
-body {
+     body {
     margin: 0;
     padding: 0;
     height: 100vh;
+    background-color: #f5f0ff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .middle {
     width: 100%;
     height: 400px; 
-    background-image: url(../../assets/home/attendance.jpg);
+    background-image: linear-gradient(rgba(204, 179, 255, 0.5), rgba(204, 179, 255, 0.5)), 
+                      url(../../assets/home/attendance.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     display: flex;
@@ -23,14 +26,16 @@ body {
 }
 
 .tranbox{
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(230, 218, 255, 0.7);
     border-radius: 12px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    backdrop-filter: blur(3px);
-    -webkit-backdrop-filter: blur(3px); 
+    box-shadow: 0 0 15px rgba(102, 51, 153, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px); 
     text-align: center;
-        width: 100%;
+    width: 100%;
     height: 400px;
+    padding: 20px;
+    border: 1px solid rgba(153, 102, 204, 0.5);
 }
 
 .middle button {
@@ -61,43 +66,62 @@ body {
     justify-items: center;
     display: flex;
     flex-direction: column;
+    padding: 40px;
+    background-color: #f5f0ff;
 }
 .last p{
     margin-top: 0%;
+    color: #4a2c82;
+    font-size: 1.1em;
+}
+.last h2 {
+    color: #5e35b1;
+    margin-bottom: 20px;
 }
 .lastimg {
     display: flex;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: center;
+    gap: 40px;
     flex-wrap: wrap;
-    padding: 10px;
+    padding: 30px;
     width: 100%;
- 
-    
+    background-color: #f5f0ff;
 }
 
 .lastimg img {
-    width: 200px;
-    height: 150px;
+    width: 220px;
+    height: 160px;
     object-fit: cover;
-    border-radius: 10px;
-    border: 4px solid #2196f3; /* Blue border */
-    transition: transform 0.3s ease, border-color 0.3s ease;
+    border-radius: 15px;
+    border: 4px solid #b388ff;
+    transition: all 0.3s ease;
+    box-shadow: 0 5px 15px rgba(126, 87, 194, 0.2);
 }
 
 .lastimg img:hover {
-    transform: scale(1.1);
-    border-color: #0d47a1; /* Darker blue on hover */
+    transform: scale(1.05);
+    border-color: #7e57c2;
+    box-shadow: 0 8px 20px rgba(126, 87, 194, 0.3);
 }
 .lastimg figure{
-        border: 2px solid black;
-        border-radius: 8px;
+    border: 2px solid #d1c4e9;
+    border-radius: 15px;
+    padding: 10px;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+.lastimg figure:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(126, 87, 194, 0.2);
 }
 
 .lastimg p{
     text-align: center;
-    border: 1px solid white;
-    box-shadow: 100px;
+    color: #5e35b1;
+    font-weight: 500;
+    margin-top: 10px;
+    font-size: 1.1em;
 }
 
 
@@ -115,6 +139,3 @@ body {
     opacity: 1;
   }
 }
-
-
-
