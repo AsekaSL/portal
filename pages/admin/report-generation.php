@@ -1,22 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Admin - Attendance Report</title>
-
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <!-- jsPDF CDN -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
-
-  <link rel="stylesheet" href="../../styles/admin/report-generation.css" />
-</head>
-
-<body>
+<div class="report-wrapper">
   <div class="container">
-    <h1>Attendance Report Generation</h1>
     <form id="reportForm" autocomplete="off" spellcheck="false">
       <div>
         <label for="courseModule">Course Module</label>
@@ -103,11 +86,8 @@
 
     <button id="downloadPDF">Download PDF Report</button>
   </div>
+</div>
 
-  <script src="../../controller/admin/report-generation.js"></script>
-</body>
-
-</html>
 
 <!-- <!DOCTYPE html>
 <html lang="en">

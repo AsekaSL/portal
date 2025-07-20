@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="styles/homestyle.css">
 
-    <link rel="stylesheet" href="../styles/admin/homestyle.css">
 </head>
 
 <body>
@@ -17,7 +17,7 @@
                 <br>easier. Make your attendence , check you presence and <br>
                 stay organized.
             </p>
-            <a href="./Login.html">
+            <a href="?page=login">
                 <button class="login-button-js">Login</button>
             </a>
         </div>
@@ -31,15 +31,15 @@
     </div>
     <div class="lastimg" id="lastimg">
         <figure>
-            <img src="../assets/home/Attendance-List.jpg" alt="">
+            <img src="assets/home/Attendance-List.jpg" alt="">
             <p>Attendance Making</p>
         </figure>
         <figure>
-            <img src="../assets/home/report-genarate.jpg" alt="">
+            <img src="assets/home/report-genarate.jpg" alt="">
             <p>Genarate Reports</p>
         </figure>
         <figure>
-            <img src="../assets/home/real-time.jpg" alt="">
+            <img src="assets/home/real-time.jpg" alt="">
             <p>Real Time Update</p>
         </figure>
     </div>  

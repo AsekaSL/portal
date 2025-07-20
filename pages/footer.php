@@ -1,18 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../styles/footer.css">
-    <script src="../controller/footer.js"></script>
-</head>
-<body>
-    
 <footer>
     <div class="footer-container">
         <div class="logo">
-            
-                <img src="../assets/admin/student-managment/LOGO.png" alt="Logo" />
+
+            <img src="../assets/admin/student-managment/LOGO.png" alt="Logo" />
         </div>
         <div class="nav-links">
             <ul>
@@ -24,6 +14,3 @@
         </div>
     </div>
 </footer>
-
-</body>
-</html>
