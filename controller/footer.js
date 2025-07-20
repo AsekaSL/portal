@@ -1,6 +1,6 @@
 
 function loadContent(page) {
-    const contentArea = document.getElementById('contentArea');
+    const contentArea = document.getElementById('content-area');
     
     switch(page) {
         case 'about':

@@ -1,8 +1,7 @@
-<footer>
+<footer id="sm-footer">
     <div class="footer-container">
         <div class="logo">
-
-            <img src="../assets/admin/student-managment/LOGO.png" alt="Logo" />
+            <img src="assets/admin/student-managment/LOGO.png" alt="Logo" />
         </div>
         <div class="nav-links">
             <ul>
