@@ -64,11 +64,12 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/adminstyle.css">
-    <!-- <link rel="stylesheet" href="styles/admin/student-management.css">
+    <link rel="stylesheet" href="styles/admin/student-management.css">
     <link rel="stylesheet" href="styles/admin/professor-management.css">
-    <link rel="stylesheet" href="styles/admin/course_unit_management.css"> -->
-    <!-- <link rel="stylesheet" href="styles/admin/report-generation.css"> -->
-    <!-- <link rel="stylesheet" href="styles/admin/admin_user_management.css"> -->
+    <link rel="stylesheet" href="styles/admin/course_unit_management.css">
+    <link rel="stylesheet" href="styles/admin/report-generation.css">
+    <link rel="stylesheet" href="styles/admin/admin_user_management.css">
+     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <?php if ($page === 'login')
         echo '<link rel="stylesheet" href="styles/login.css">'; ?>
 </head>

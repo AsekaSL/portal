@@ -1,5 +1,5 @@
-<div class="report-wrapper">
-  <div class="container">
+<div class="report-gen">
+  <div class="report-container">
     <form id="reportForm" autocomplete="off" spellcheck="false">
       <div>
         <label for="courseModule">Course Module</label>
@@ -54,9 +54,7 @@
       <div class="student-search-wrapper">
         <label for="studentId">Student ID</label>
         <input type="text" id="studentId" name="studentId" placeholder="Enter Student ID" disabled list="studentIds" />
-        <datalist id="studentIds">
-          <!-- Student IDs populated by JS -->
-        </datalist>
+        <datalist id="studentIds"></datalist>
         <span id="searchIcon" class="search-icon" title="Search Student">&#128269;</span>
       </div>
 
@@ -76,8 +74,7 @@
           <th>Absent Days</th>
         </tr>
       </thead>
-      <tbody>
-      </tbody>
+      <tbody></tbody>
     </table>
 
     <div id="chartContainer" style="display:none;">
@@ -87,7 +84,6 @@
     <button id="downloadPDF">Download PDF Report</button>
   </div>
 </div>
-
 
 <!-- <!DOCTYPE html>
 <html lang="en">

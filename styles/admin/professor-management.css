@@ -1,221 +1,108 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-body {
+.professor-container {
   font-family: 'Segoe UI', sans-serif;
-}
-.managment-container{
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
 }
 
-.left-section{
-    width: 250px;
-    background-color: rgb(230, 233, 242);
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    padding: 20px 10px;
-    border-right: 2px solid rgb(51, 51, 51);
-    position: relative;
+.professor-container .right-section {
+  flex: 1;
+  padding: 20px;
+  overflow-x: hidden;
 }
-.right-section{
-    flex: 1;
-    padding: 20px;
-    overflow-x: hidden;
+
+.professor-container .all-form-controller {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
 }
-.title-container{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-    border-bottom: 2px solid rgb(51, 51, 51);
-    padding-bottom: 10px;
+
+.professor-container form {
+  flex: 1 1 45%;
+  border: 1px solid #333;
+  border-radius: 10px;
+  padding: 20px;
 }
-.profile-img{
-    width: 50px;
-    height: 50px;
-    object-fit: cover;
-    border: none;
-    border-radius: 50%;
+
+.professor-container form .input-container {
+  margin-bottom: 12px;
 }
-.all-form-controller{
-    display: flex;
-    gap: 20px;
-    flex-wrap: 20px;
-    margin-bottom: 20px;
+
+.professor-container form input,
+.professor-container form select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.professor-container form button {
+  display: block;
+  width: 150px;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #c9a4cb;
+  border: none;
+  border-radius: 20px;
+  color: white;
+  cursor: pointer;
+}
+
+.professor-container .serach-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 20px;
+}
+
+.professor-container .serach-box {
+  position: relative;
+}
+
+.professor-container .serach-bar {
+  width: 250px;
+  height: 35px;
+  border: none;
+  border-radius: 17.5px;
+  padding: 5px 50px 5px 35px;
+  background-color: rgba(97, 2, 97, 0.151);
+}
+
+.professor-container .search-img {
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  right: 10px;
+  top: 8px;
+}
+
+.professor-container .table-container {
+  overflow-x: auto;
+}
+
+.professor-container .table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 700px;
+  text-align: center;
+}
+
+.professor-container .table-container th,
+.professor-container .table-container td {
+  padding: 10px;
+  border: 1px solid #ddd;
+}
+
+.professor-container .table-container th {
+  background-color: #f2f2f2;
 }
 
 @media (max-width: 1024px) {
-    .all-form-controller{
-        flex-direction: column;
-    }
-    .all-form-controller form{
-        width: 100%;
-    }
-}
-
-.all-form-controller form{
-    flex: 1 1 45%;
-    border: 1px solid #333;
-    border-radius: 10px;
-    padding: 20px;
-}
-
-.all-form-controller form input,
-.all-form-controller form select{
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 12px;
-    border: 1px solid #aaa;
-    border-radius: 4px;
-}
-.all-form-controller form button{
-    display: block;
-    width: 150px;
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #c9a4cb;
-    border: none;
-    border-radius: 20px;
-    color: white;
-    cursor: pointer;
-}
-
-.serach-container{
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-    justify-content: end;
-}
-.serach-container input{
-    width: 300px;
-    padding: 10px;
-    border-radius: 20px;
-    border: 1px solid #ccc;
-}
-.table-container{
-    overflow-x: auto;
-}
-.table-container table{
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 700px;
-}
-
-.table-container table th,td{
-    padding: 10px;
-    border: 1px solid #ddd;
-}
-
-.table-container table th{
-    background-color: #f2f2f2;
-}
-.couse-module-container{
-    margin-bottom: 20px;
-}
-.couse-module-container div{
-    display: grid;
-    grid-template-columns: 20px 1fr;
-    align-items: center;
-    justify-items: start;
-    vertical-align: top;
-    margin-bottom: 5px;
-}
-.couse-module-container div input{
-    margin: 0;
-}
-
-.serach-bar{
-    width: 250px;
-    height: 35px;
-    border: none;
-    border-radius: 17.5px;
-    padding: 5px 50px 5px  35px;
-    background-color: rgba(97, 2, 97, 0.151);
-}
-.serach-box{
-    position: relative;
-}
-.search-img{
-    position: absolute;
-    width: 18px;
-    height: 18px;
-    object-fit: cover;
-    object-position: center;
-    right: 10px;
-    top: 8px;
-}
-
-.admin-opration-container button{
-    width: 100%;
-    border: none;
-    height: 35px;
-    margin-bottom: 5px;
-    background-color: rgba(7, 7, 7, 0);
-}
-
-.bottom-opration-container{
-    display: flex;
+  .professor-container .all-form-controller {
     flex-direction: column;
-    gap: 10px;
-    border-top: 2px solid rgb(51, 51, 51);
-    padding-top: 20px;
-}
-.mobile-admin-navigation{
-    display: none;
-}
-.hum-menu{
-    width: 30px;
-    height: 25px;
-    cursor: pointer;
-}
-.menu-item{
-    display: none;
-}
+  }
 
-@media (max-width: 768px) {
-    .managment-container{
-        flex-direction: column;
-    }
-
-    .left-section{
-        width: 100%;
-        flex-direction: row;
-        /* overflow-x: auto; */
-        align-items: center;
-        position: relative;
-        border-bottom: 1px solid rgb(51, 51, 51);
-        z-index: 1;
-    }
-    .admin-opration-container{
-            display: none;
-    }
-    .bottom-opration-container{
-        display: none;
-    }
-    .mobile-admin-navigation{
-        display: flex;
-    }
-    .title-container h1{
-        font-size: 25px;
-    }
-    .dropdown{
-        position: absolute;
-        display: flex;
-        flex-direction: column;
-        height: 200px;
-        width: 250px;
-        right: 10px;
-        top: 25px;
-    }
-    .dropdown button:active{
-        background-color: rgb(171, 195, 215);
-    }
-     .menu-item button{
-        border: none;
-        flex: 1;
-     }
+  .professor-container form {
+    width: 100%;
+  }
 }

@@ -1,5 +1,5 @@
-<div class="container">
-  <form id="professorForm">
+<div class="professor-container">
+  <form class="professor-form" id="professorForm">
     <input type="hidden" id="lecture_id">
     <input type="text" id="full_name" placeholder="Full Name" required>
     <input type="text" id="nic" placeholder="NIC" required>
@@ -16,6 +16,6 @@
     <button type="submit">Save</button>
   </form>
 
-  <input type="text" id="searchBox" placeholder="Search by name or ID...">
-  <div id="professorList"></div>
+  <input type="text" id="searchBox" class="professor-search" placeholder="Search by name or ID...">
+  <div id="professorList" class="professor-list"></div>
 </div>
