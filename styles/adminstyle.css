@@ -92,12 +92,10 @@ body, html, .container {
 
 /* Content Area */
 .content-area {
-  flex-grow: 1;
-  padding: 30px 40px;
-  background: white;
+  padding: 20px;
   overflow-y: auto;
-  box-shadow: inset 0 0 10px #ddd;
-  border-radius: 0 0 8px 8px;
+  max-height: calc(100vh - 100px); /* adjust based on your header height */
+  box-sizing: border-box;
 }
 
 .content-area h2 {

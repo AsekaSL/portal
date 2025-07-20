@@ -1,40 +1,40 @@
 /* Reset & base */
-* {
+.report-wrapper * {
   box-sizing: border-box;
 }
-body {
+.report-wrapper {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background: #f4f6f8;
-  margin: 0; padding: 20px;
   color: #333;
+  padding: 20px;
 }
-.container {
-  max-width: 1000px;
-  margin: 0 auto;
+.report-wrapper .container {
+  max-width: 100%;
   background: #fff;
   padding: 25px 30px;
   border-radius: 10px;
-  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
-h1 {
+.report-wrapper h1 {
   text-align: center;
   margin-bottom: 30px;
   color: #007bff;
 }
-form {
+.report-wrapper form {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px 30px;
   align-items: end;
   margin-bottom: 30px;
 }
-
-label {
+.report-wrapper label {
   display: block;
   font-weight: 600;
   margin-bottom: 6px;
 }
-select, input[type="date"], input[type="text"], input[type="number"] {
+.report-wrapper select,
+.report-wrapper input[type="date"],
+.report-wrapper input[type="text"],
+.report-wrapper input[type="number"] {
   width: 100%;
   padding: 8px 12px;
   border-radius: 5px;
@@ -42,26 +42,29 @@ select, input[type="date"], input[type="text"], input[type="number"] {
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-select:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="number"]:focus {
+.report-wrapper select:focus,
+.report-wrapper input[type="date"]:focus,
+.report-wrapper input[type="text"]:focus,
+.report-wrapper input[type="number"]:focus {
   border-color: #007bff;
   outline: none;
 }
-.checkbox-group {
+.report-wrapper .checkbox-group {
   display: flex;
   align-items: center;
   gap: 8px;
   grid-column: span 2;
 }
-.student-search-wrapper {
+.report-wrapper .student-search-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
-.student-search-wrapper input[type="text"]:disabled {
+.report-wrapper .student-search-wrapper input[type="text"]:disabled {
   background: #f0f0f0;
   cursor: not-allowed;
 }
-.search-icon {
+.report-wrapper .search-icon {
   position: absolute;
   right: 10px;
   cursor: pointer;
@@ -70,10 +73,10 @@ select:focus, input[type="date"]:focus, input[type="text"]:focus, input[type="nu
   user-select: none;
   display: none;
 }
-.search-icon.active {
+.report-wrapper .search-icon.active {
   display: block;
 }
-button#generateReport {
+.report-wrapper button#generateReport {
   grid-column: span 2;
   background-color: #007bff;
   color: white;
@@ -85,50 +88,54 @@ button#generateReport {
   transition: background-color 0.3s ease;
   user-select: none;
 }
-button#generateReport:hover {
+.report-wrapper button#generateReport:hover {
   background-color: #0056b3;
 }
 
 /* Table */
-table {
+.report-wrapper table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   font-size: 0.95rem;
 }
-th, td {
+.report-wrapper th,
+.report-wrapper td {
   border: 1px solid #ddd;
   padding: 10px 12px;
   text-align: left;
 }
-th {
+.report-wrapper th {
   background-color: #007bff;
   color: white;
   user-select: none;
 }
-tbody tr:nth-child(even) {
+.report-wrapper tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
 /* Loading and error */
-#loading, #error {
+.report-wrapper #loading,
+.report-wrapper #error {
   text-align: center;
   font-weight: 600;
   margin-top: 15px;
-  color: #d9534f;
 }
-#loading {
+.report-wrapper #loading {
   color: #007bff;
+}
+.report-wrapper #error {
+  color: #d9534f;
 }
 
 /* Pie chart container */
-#chartContainer {
+.report-wrapper #chartContainer {
   max-width: 400px;
   margin: 30px auto 0;
 }
 
 /* Download PDF button */
-#downloadPDF {
+.report-wrapper #downloadPDF {
   margin-top: 15px;
   display: none;
   background-color: #28a745;
@@ -141,22 +148,23 @@ tbody tr:nth-child(even) {
   user-select: none;
   transition: background-color 0.3s ease;
 }
-#downloadPDF:hover {
+.report-wrapper #downloadPDF:hover {
   background-color: #1e7e34;
 }
 
 /* Responsive adjustments */
 @media (max-width: 600px) {
-  form {
+  .report-wrapper form {
     grid-template-columns: 1fr;
   }
-  .checkbox-group {
+  .report-wrapper .checkbox-group {
     grid-column: span 1;
   }
-  button#generateReport {
+  .report-wrapper button#generateReport {
     grid-column: span 1;
   }
 }
+
 
 /* 
 * {
