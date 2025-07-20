@@ -1,40 +1,45 @@
-/* Reset & base */
-.report-wrapper * {
+.report-gen * {
   box-sizing: border-box;
 }
-.report-wrapper {
+
+.report-gen {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   color: #333;
   padding: 20px;
 }
-.report-wrapper .container {
+
+.report-gen .report-container {
   max-width: 100%;
   background: #fff;
   padding: 25px 30px;
   border-radius: 10px;
   box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
 }
-.report-wrapper h1 {
+
+.report-gen h1 {
   text-align: center;
   margin-bottom: 30px;
   color: #007bff;
 }
-.report-wrapper form {
+
+.report-gen form {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 20px 30px;
   align-items: end;
   margin-bottom: 30px;
 }
-.report-wrapper label {
+
+.report-gen label {
   display: block;
   font-weight: 600;
   margin-bottom: 6px;
 }
-.report-wrapper select,
-.report-wrapper input[type="date"],
-.report-wrapper input[type="text"],
-.report-wrapper input[type="number"] {
+
+.report-gen select,
+.report-gen input[type="date"],
+.report-gen input[type="text"],
+.report-gen input[type="number"] {
   width: 100%;
   padding: 8px 12px;
   border-radius: 5px;
@@ -42,29 +47,34 @@
   font-size: 1rem;
   transition: border-color 0.3s ease;
 }
-.report-wrapper select:focus,
-.report-wrapper input[type="date"]:focus,
-.report-wrapper input[type="text"]:focus,
-.report-wrapper input[type="number"]:focus {
+
+.report-gen select:focus,
+.report-gen input[type="date"]:focus,
+.report-gen input[type="text"]:focus,
+.report-gen input[type="number"]:focus {
   border-color: #007bff;
   outline: none;
 }
-.report-wrapper .checkbox-group {
+
+.report-gen .checkbox-group {
   display: flex;
   align-items: center;
   gap: 8px;
   grid-column: span 2;
 }
-.report-wrapper .student-search-wrapper {
+
+.report-gen .student-search-wrapper {
   position: relative;
   display: flex;
   align-items: center;
 }
-.report-wrapper .student-search-wrapper input[type="text"]:disabled {
+
+.report-gen .student-search-wrapper input[type="text"]:disabled {
   background: #f0f0f0;
   cursor: not-allowed;
 }
-.report-wrapper .search-icon {
+
+.report-gen .search-icon {
   position: absolute;
   right: 10px;
   cursor: pointer;
@@ -73,10 +83,12 @@
   user-select: none;
   display: none;
 }
-.report-wrapper .search-icon.active {
+
+.report-gen .search-icon.active {
   display: block;
 }
-.report-wrapper button#generateReport {
+
+.report-gen button#generateReport {
   grid-column: span 2;
   background-color: #007bff;
   color: white;
@@ -88,54 +100,56 @@
   transition: background-color 0.3s ease;
   user-select: none;
 }
-.report-wrapper button#generateReport:hover {
+
+.report-gen button#generateReport:hover {
   background-color: #0056b3;
 }
 
-/* Table */
-.report-wrapper table {
+.report-gen table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
   font-size: 0.95rem;
 }
-.report-wrapper th,
-.report-wrapper td {
+
+.report-gen th,
+.report-gen td {
   border: 1px solid #ddd;
   padding: 10px 12px;
   text-align: left;
 }
-.report-wrapper th {
+
+.report-gen th {
   background-color: #007bff;
   color: white;
   user-select: none;
 }
-.report-wrapper tbody tr:nth-child(even) {
+
+.report-gen tbody tr:nth-child(even) {
   background-color: #f9f9f9;
 }
 
-/* Loading and error */
-.report-wrapper #loading,
-.report-wrapper #error {
+.report-gen #loading,
+.report-gen #error {
   text-align: center;
   font-weight: 600;
   margin-top: 15px;
 }
-.report-wrapper #loading {
+
+.report-gen #loading {
   color: #007bff;
 }
-.report-wrapper #error {
+
+.report-gen #error {
   color: #d9534f;
 }
 
-/* Pie chart container */
-.report-wrapper #chartContainer {
+.report-gen #chartContainer {
   max-width: 400px;
-  margin: 30px auto 0;
+  margin: 300px auto 0;
 }
 
-/* Download PDF button */
-.report-wrapper #downloadPDF {
+.report-gen #downloadPDF {
   margin-top: 15px;
   display: none;
   background-color: #28a745;
@@ -148,23 +162,22 @@
   user-select: none;
   transition: background-color 0.3s ease;
 }
-.report-wrapper #downloadPDF:hover {
+
+.report-gen #downloadPDF:hover {
   background-color: #1e7e34;
 }
 
-/* Responsive adjustments */
 @media (max-width: 600px) {
-  .report-wrapper form {
+  .report-gen form {
     grid-template-columns: 1fr;
   }
-  .report-wrapper .checkbox-group {
+  .report-gen .checkbox-group {
     grid-column: span 1;
   }
-  .report-wrapper button#generateReport {
+  .report-gen button#generateReport {
     grid-column: span 1;
   }
 }
-
 
 /* 
 * {

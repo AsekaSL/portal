@@ -1,4 +1,4 @@
-/* Login Page - Scoped Styles */
+/* Scoped Login Page Styles */
 .login-page {
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
@@ -9,33 +9,33 @@
     height: 100vh;
 }
 
-.login-container {
+.login-page .login-container {
     background-color: white;
     padding: 20px;
     width: 300px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
-.login-title {
+.login-page .login-title {
     text-align: center;
     color: #333;
     margin-bottom: 20px;
 }
 
-.login-fieldset {
+.login-page .login-fieldset {
     border: 1px solid #ddd;
     padding: 15px;
     margin-bottom: 15px;
     border-radius: 4px;
 }
 
-.login-label {
+.login-page .login-label {
     display: block;
     margin: 10px 0 5px 0;
     font-weight: bold;
 }
 
-.login-input {
+.login-page .login-input {
     width: 100%;
     padding: 8px;
     border: 1px solid #ddd;
@@ -43,7 +43,7 @@
     box-sizing: border-box;
 }
 
-.login-button {
+.login-page .login-button {
     background-color: #4CAF50;
     color: white;
     padding: 10px;
@@ -54,12 +54,12 @@
     border-radius: 4px;
 }
 
-.login-footer {
+.login-page .login-footer {
     text-align: center;
     margin-top: 10px;
 }
 
-.login-link {
+.login-page .login-link {
     color: #4CAF50;
     text-decoration: none;
     font-size: 14px;
