@@ -63,12 +63,13 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
     <title>Portal</title>
     <link rel="stylesheet" href="styles/header.css">
     <link rel="stylesheet" href="styles/footer.css">
-    <link rel="stylesheet" href="styles/adminstyle.css">
+    <link rel="stylesheet" href="styles/admin-dashboard.css">
     <link rel="stylesheet" href="styles/admin/student-management.css">
     <link rel="stylesheet" href="styles/admin/professor-management.css">
     <link rel="stylesheet" href="styles/admin/course_unit_management.css">
     <link rel="stylesheet" href="styles/admin/report-generation.css">
     <link rel="stylesheet" href="styles/admin/admin_user_management.css">
+    <link rel="stylesheet" href="styles/professor-dashboard.css">
      <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <?php if ($page === 'login')
         echo '<link rel="stylesheet" href="styles/login.css">'; ?>
@@ -103,7 +104,8 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
 
     <script src="controller/header.js"></script>
     <script src="controller/footer.js"></script>
-    <script src="controller/adminscript.js"></script>
+    <script src="controller/admin-dashboard.js"></script>
+    <script src="controller/professor-dashboard.js"></script>
     <script src="controller/admin/admin_user_management.js"></script>
     <script src="controller/admin/report-generation.js"></script>
     <script src="controller/admin/course_unit_management.js"></script>
