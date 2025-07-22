@@ -18,8 +18,6 @@
     </header>
 
     <section class="content-area" id="content-area">
-      <h2>Welcome to Admin Dashboard</h2>
-      <p>Select an option from the menu to get started.</p>
     </section>
   </div>
 </div>

@@ -6,6 +6,7 @@
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
+/* These base styles are applied globally for the overall page layout. */
 body, html, .container {
   height: 100vh;
   width: 100vw;
@@ -13,13 +14,15 @@ body, html, .container {
   color: #333;
 }
 
+/* All dashboard-specific styles are scoped under the .container class
+   to prevent conflicts with other CSS on the page. */
 .container {
   display: flex;
   flex-direction: row;
 }
 
 /* Vertical Navigation */
-.vertical-nav {
+.container .vertical-nav {
   width: 250px;
   background: linear-gradient(180deg, #4e73df, #224abe);
   color: white;
@@ -29,11 +32,11 @@ body, html, .container {
   box-shadow: 2px 0 8px rgba(0,0,0,0.1);
 }
 
-.vertical-nav ul {
+.container .vertical-nav ul {
   list-style: none;
 }
 
-.vertical-nav li {
+.container .vertical-nav li {
   padding: 15px 25px;
   cursor: pointer;
   font-weight: 600;
@@ -41,14 +44,14 @@ body, html, .container {
   border-left: 4px solid transparent;
 }
 
-.vertical-nav li:hover,
-.vertical-nav li.active {
+.container .vertical-nav li:hover,
+.container .vertical-nav li.active {
   background: rgba(255,255,255,0.15);
   border-left: 4px solid #f6c23e;
 }
 
 /* Main Area */
-.main-area {
+.container .main-area {
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -56,7 +59,7 @@ body, html, .container {
 }
 
 /* Horizontal Top Bar */
-.horizontal-bar {
+.container .horizontal-bar {
   height: 60px;
   background: white;
   border-bottom: 1px solid #ddd;
@@ -70,13 +73,13 @@ body, html, .container {
   z-index: 100;
 }
 
-.horizontal-bar h1 {
+.container .horizontal-bar h1 {
   font-size: 1.25rem;
   font-weight: 700;
   color: #4e73df;
 }
 
-.profile img {
+.container .profile img {
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -86,12 +89,12 @@ body, html, .container {
   transition: transform 0.3s ease;
 }
 
-.profile img:hover {
+.container .profile img:hover {
   transform: scale(1.1);
 }
 
 /* Content Area */
-.content-area {
+.container .content-area {
   flex-grow: 1;
   padding: 30px 40px;
   background: white;
@@ -100,12 +103,12 @@ body, html, .container {
   border-radius: 0 0 8px 8px;
 }
 
-.content-area h2 {
+.container .content-area h2 {
   margin-bottom: 15px;
   color: #224abe;
 }
 
-.content-area p {
+.container .content-area p {
   font-size: 1rem;
   line-height: 1.5;
   color: #555;
