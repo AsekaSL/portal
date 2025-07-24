@@ -13,6 +13,6 @@
               <button class="login-button" type="submit">Sign In</button>
           </form>
       </fieldset>
-      <p class="login-footer"><a class="login-link" href="Update.html">Forgot Password?</a></p>
+      <p class="login-footer"><a class="login-link" href="?page=update-password">Forgot Password?</a></p>
   </div>
 </div>

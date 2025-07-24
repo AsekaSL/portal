@@ -2,7 +2,7 @@
   <nav class="vertical-nav">
     <ul>
       <li data-content="attendance">Attendance Mark</li>
-      <li data-content="report-generation">Report Generation</li>
+      <li data-content="professor-report-generation">Report Generation</li>
       <li data-content="course-management">Course Unit Management</li>
       <li data-content="student-notifications">Notification Panel</li>
       <li data-content="professor-profile">Profile Update</li>
