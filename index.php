@@ -62,6 +62,8 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
     <meta charset="UTF-8">
     <title>Portal</title>
     <link rel="stylesheet" href="styles/header.css">
+    <link rel="stylesheet" href="styles/home.css">
+    <link rel="stylesheet" href="styles/update-password.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/admin-dashboard.css">
     <link rel="stylesheet" href="styles/admin/student-management.css">
@@ -94,6 +96,8 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
             include "pages/professor-dashboard.php";
         } elseif ($page === 'student-dashboard') {
             include "pages/student-dashboard.php";
+        } elseif ($page === "update-password") {
+            include "pages/update-password.php";
         } else {
             include "pages/home.php";
         }
