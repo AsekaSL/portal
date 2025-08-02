@@ -1,26 +1,28 @@
-/* Reset and Base Styles */
-* {
+/* Reset and Base Styles scoped for attendance view */
+.attendance-view * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+.attendance-view body, 
+.attendance-view {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(grey);
+    background: linear-gradient();
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
 }
 
-.container {
+/* Container */
+.attendance-view .container {
     max-width: 1400px;
     margin: 0 auto;
     padding: 20px;
 }
 
 /* Header Styles */
-.header {
+.attendance-view .header {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 20px 30px;
@@ -32,24 +34,24 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.header h1 {
+.attendance-view .header h1 {
     color: #2c3e50;
     font-size: 28px;
     font-weight: 700;
 }
 
-.header h1 i {
+.attendance-view .header h1 i {
     margin-right: 15px;
     color: #667eea;
 }
 
-.header-actions {
+.attendance-view .header-actions {
     display: flex;
     gap: 15px;
 }
 
 /* Button Styles */
-.btn {
+.attendance-view .btn {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
@@ -63,32 +65,32 @@ body {
     text-decoration: none;
 }
 
-.btn-primary {
+.attendance-view .btn-primary {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
 }
 
-.btn-primary:hover {
+.attendance-view .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-.btn-secondary {
+.attendance-view .btn-secondary {
     background: #6c757d;
     color: white;
 }
 
-.btn-secondary:hover {
+.attendance-view .btn-secondary:hover {
     background: #5a6268;
     transform: translateY(-2px);
 }
 
 /* Date Filter Section */
-.date-filter-section {
+.attendance-view .date-filter-section {
     margin-bottom: 30px;
 }
 
-.date-filter-card {
+.attendance-view .date-filter-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 25px;
@@ -96,38 +98,38 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.date-filter-card h3 {
+.attendance-view .date-filter-card h3 {
     color: #2c3e50;
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 600;
 }
 
-.date-filter-card h3 i {
+.attendance-view .date-filter-card h3 i {
     margin-right: 10px;
     color: #667eea;
 }
 
-.date-inputs {
+.attendance-view .date-inputs {
     display: flex;
     gap: 20px;
-    align-items: end;
+    align-items: flex-end;
     flex-wrap: wrap;
 }
 
-.date-group {
+.attendance-view .date-group {
     display: flex;
     flex-direction: column;
     min-width: 200px;
 }
 
-.date-group label {
+.attendance-view .date-group label {
     font-weight: 600;
     margin-bottom: 8px;
     color: #2c3e50;
 }
 
-.date-group input {
+.attendance-view .date-group input {
     padding: 12px 15px;
     border: 2px solid #e9ecef;
     border-radius: 8px;
@@ -137,30 +139,30 @@ body {
     transition: border-color 0.3s ease;
 }
 
-.date-group input:focus {
+.attendance-view .date-group input:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-/* Loading and Error Messages */
-.loading-spinner {
+/* Loading Spinner and Error Message */
+.attendance-view #loadingSpinner {
     text-align: center;
     padding: 60px 20px;
     color: #667eea;
 }
 
-.loading-spinner i {
+.attendance-view #loadingSpinner i {
     font-size: 48px;
     margin-bottom: 20px;
 }
 
-.loading-spinner p {
+.attendance-view #loadingSpinner p {
     font-size: 18px;
     font-weight: 500;
 }
 
-.error-message {
+.attendance-view #errorMessage {
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
@@ -174,14 +176,14 @@ body {
 }
 
 /* Courses Container */
-.courses-container {
+.attendance-view #coursesContainer {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
     gap: 25px;
     margin-bottom: 40px;
 }
 
-.course-card {
+.attendance-view .course-card {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 25px;
@@ -190,30 +192,30 @@ body {
     transition: transform 0.3s ease;
 }
 
-.course-card:hover {
+.attendance-view .course-card:hover {
     transform: translateY(-5px);
 }
 
-.course-header {
+.attendance-view .course-header {
     display: flex;
     justify-content: space-between;
-    align-items: start;
+    align-items: flex-start;
     margin-bottom: 20px;
 }
 
-.course-info h3 {
+.attendance-view .course-info h3 {
     color: #2c3e50;
     font-size: 18px;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
-.course-info p {
+.attendance-view .course-info p {
     color: #6c757d;
     font-size: 14px;
 }
 
-.course-status {
+.attendance-view .course-status {
     padding: 5px 12px;
     border-radius: 15px;
     font-size: 12px;
@@ -221,67 +223,70 @@ body {
     text-transform: uppercase;
 }
 
-.status-active {
+.attendance-view .status-active {
     background: #d4edda;
     color: #155724;
 }
 
-.status-warning {
+.attendance-view .status-warning {
     background: #fff3cd;
     color: #856404;
 }
 
-.status-danger {
+.attendance-view .status-danger {
     background: #f8d7da;
     color: #721c24;
 }
 
-.attendance-stats {
+/* Attendance Stats */
+.attendance-view .attendance-stats {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
     gap: 15px;
     margin-bottom: 20px;
 }
 
-.stat-item {
+.attendance-view .stat-item {
     text-align: center;
     padding: 12px;
     background: #f8f9fa;
     border-radius: 8px;
 }
 
-.stat-item h4 {
+.attendance-view .stat-item h4 {
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 5px;
 }
 
-.stat-item p {
+.attendance-view .stat-item p {
     font-size: 12px;
     color: #6c757d;
     text-transform: uppercase;
     font-weight: 600;
 }
 
-.present {
+.attendance-view .present {
     color: #28a745;
 }
 
-.absent {
+.attendance-view .absent {
     color: #dc3545;
 }
 
-.total {
+.attendance-view .total {
     color: #6c757d;
 }
 
-.chart-container {
+/* Chart Container */
+.attendance-view .chart-container {
     position: relative;
     height: 200px;
     margin-bottom: 15px;
 }
 
-.attendance-percentage {
+/* Attendance Percentage */
+.attendance-view .attendance-percentage {
     text-align: center;
     font-size: 24px;
     font-weight: 700;
@@ -290,28 +295,28 @@ body {
     margin-top: 10px;
 }
 
-.percentage-excellent {
+.attendance-view .percentage-excellent {
     background: #d4edda;
     color: #155724;
 }
 
-.percentage-good {
+.attendance-view .percentage-good {
     background: #d1ecf1;
     color: #0c5460;
 }
 
-.percentage-warning {
+.attendance-view .percentage-warning {
     background: #fff3cd;
     color: #856404;
 }
 
-.percentage-danger {
+.attendance-view .percentage-danger {
     background: #f8d7da;
     color: #721c24;
 }
 
 /* Statistics Section */
-.stats-section {
+.attendance-view .stats-section {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 25px;
@@ -320,25 +325,25 @@ body {
     margin-bottom: 30px;
 }
 
-.stats-section h3 {
+.attendance-view .stats-section h3 {
     color: #2c3e50;
     margin-bottom: 20px;
     font-size: 20px;
     font-weight: 600;
 }
 
-.stats-section h3 i {
+.attendance-view .stats-section h3 i {
     margin-right: 10px;
     color: #667eea;
 }
 
-.stats-grid {
+.attendance-view .stats-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
 }
 
-.stat-card {
+.attendance-view .stat-card {
     display: flex;
     align-items: center;
     padding: 20px;
@@ -347,11 +352,11 @@ body {
     transition: transform 0.3s ease;
 }
 
-.stat-card:hover {
+.attendance-view .stat-card:hover {
     transform: translateY(-3px);
 }
 
-.stat-icon {
+.attendance-view .stat-icon {
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -363,30 +368,31 @@ body {
     color: white;
 }
 
-.stat-card:nth-child(1) .stat-icon {
+/* Color schemes for stat icons */
+.attendance-view .stat-card:nth-child(1) .stat-icon {
     background: linear-gradient(135deg, #667eea, #764ba2);
 }
 
-.stat-card:nth-child(2) .stat-icon {
+.attendance-view .stat-card:nth-child(2) .stat-icon {
     background: linear-gradient(135deg, #28a745, #20c997);
 }
 
-.stat-card:nth-child(3) .stat-icon {
+.attendance-view .stat-card:nth-child(3) .stat-icon {
     background: linear-gradient(135deg, #007bff, #6f42c1);
 }
 
-.stat-card:nth-child(4) .stat-icon {
+.attendance-view .stat-card:nth-child(4) .stat-icon {
     background: linear-gradient(135deg, #dc3545, #fd7e14);
 }
 
-.stat-info h4 {
+.attendance-view .stat-info h4 {
     font-size: 28px;
     font-weight: 700;
     color: #2c3e50;
     margin-bottom: 5px;
 }
 
-.stat-info p {
+.attendance-view .stat-info p {
     color: #6c757d;
     font-size: 14px;
     font-weight: 500;
@@ -394,57 +400,57 @@ body {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
+    .attendance-view .container {
         padding: 10px;
     }
-    
-    .header {
+
+    .attendance-view .header {
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
-    .header-actions {
+
+    .attendance-view .header-actions {
         justify-content: center;
     }
-    
-    .date-inputs {
+
+    .attendance-view .date-inputs {
         flex-direction: column;
         align-items: stretch;
     }
-    
-    .date-group {
+
+    .attendance-view .date-group {
         min-width: auto;
     }
-    
-    .courses-container {
+
+    .attendance-view #coursesContainer {
         grid-template-columns: 1fr;
     }
-    
-    .attendance-stats {
+
+    .attendance-view .attendance-stats {
         grid-template-columns: 1fr;
     }
-    
-    .stats-grid {
+
+    .attendance-view .stats-grid {
         grid-template-columns: 1fr;
     }
 }
 
 @media (max-width: 480px) {
-    .header h1 {
+    .attendance-view .header h1 {
         font-size: 22px;
     }
-    
-    .btn {
+
+    .attendance-view .btn {
         padding: 10px 16px;
         font-size: 12px;
     }
-    
-    .course-card {
+
+    .attendance-view .course-card {
         padding: 20px;
     }
-    
-    .chart-container {
+
+    .attendance-view .chart-container {
         height: 150px;
     }
 }
