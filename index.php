@@ -66,13 +66,22 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
     <link rel="stylesheet" href="styles/update-password.css">
     <link rel="stylesheet" href="styles/footer.css">
     <link rel="stylesheet" href="styles/admin-dashboard.css">
+    <link rel="stylesheet" href="styles/student-dashboard.css">
+
     <link rel="stylesheet" href="styles/admin/student-management.css">
     <link rel="stylesheet" href="styles/admin/professor-management.css">
     <link rel="stylesheet" href="styles/admin/course_unit_management.css">
     <link rel="stylesheet" href="styles/admin/report-generation.css">
     <link rel="stylesheet" href="styles/admin/admin_user_management.css">
+
     <link rel="stylesheet" href="styles/professor-dashboard.css">
-     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles/student/view-attendence.css">
+    <link rel="stylesheet" href="styles/student/student-profile.css">
+
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
     <?php if ($page === 'login')
         echo '<link rel="stylesheet" href="styles/login.css">'; ?>
 </head>
@@ -110,15 +119,23 @@ if (in_array($page, ['admin-dashboard', 'professor-dashboard', 'student-dashboar
     <script src="controller/footer.js"></script>
     <script src="controller/admin-dashboard.js"></script>
     <script src="controller/professor-dashboard.js"></script>
+    <script src="controller/student-dashboard.js"></script>
+
     <script src="controller/admin/admin_user_management.js"></script>
     <script src="controller/admin/report-generation.js"></script>
     <script src="controller/admin/course_unit_management.js"></script>
     <script src="controller/admin/professor-management.js"></script>
     <script src="controller/admin/student-management.js"></script>
+
+    <script src="controller/student/view-attendance.js"></script>
+    <script src="controller/student/student-profile.js"></script>
+
     <!-- Chart.js CDN -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <!-- jsPDF CDN -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <!-- Flatpickr for date range picker -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </body>
 
 </html>

@@ -1,26 +1,31 @@
-/* Reset and Base Styles */
-* {
+#student-profile-update * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
+#student-profile-update {
+    width: 100%;
+    max-width: 100vw;  /* Limit to viewport width */
+    overflow-x: hidden; /* prevent horizontal scroll */
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient();
     min-height: 100vh;
     color: #333;
     line-height: 1.6;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+/* Container limited max width with auto margin for centering */
+#student-profile-update .container {
+    width: 100%;
+    max-width: 1200px;   /* Maximum content width */
+    margin: 0 auto;      /* Center horizontally */
+    padding: 20px 30px;  /* Padding for breathing space */
+    box-sizing: border-box;
 }
 
 /* Header Styles */
-.header {
+#student-profile-update .header {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
     padding: 20px 30px;
@@ -32,24 +37,24 @@ body {
     backdrop-filter: blur(10px);
 }
 
-.header h1 {
+#student-profile-update .header h1 {
     color: #2c3e50;
     font-size: 28px;
     font-weight: 700;
 }
 
-.header h1 i {
+#student-profile-update .header h1 i {
     margin-right: 15px;
     color: #667eea;
 }
 
-.header-actions {
+#student-profile-update .header-actions {
     display: flex;
     gap: 15px;
 }
 
 /* Button Styles */
-.btn {
+#student-profile-update .btn {
     padding: 12px 24px;
     border: none;
     border-radius: 8px;
@@ -63,64 +68,67 @@ body {
     text-decoration: none;
 }
 
-.btn-primary {
+#student-profile-update .btn-primary {
     background: linear-gradient(135deg, #667eea, #764ba2);
     color: white;
 }
 
-.btn-primary:hover {
+#student-profile-update .btn-primary:hover {
     transform: translateY(-2px);
     box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
 }
 
-.btn-secondary {
+#student-profile-update .btn-secondary {
     background: #6c757d;
     color: white;
 }
 
-.btn-secondary:hover {
+#student-profile-update .btn-secondary:hover {
     background: #5a6268;
     transform: translateY(-2px);
 }
 
-.btn-success {
+#student-profile-update .btn-success {
     background: #28a745;
     color: white;
 }
 
-.btn-success:hover {
+#student-profile-update .btn-success:hover {
     background: #218838;
     transform: translateY(-2px);
 }
 
 /* Profile Container */
-.profile-container {
+#student-profile-update .profile-container {
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
-    padding: 30px;
+    padding: 30px 30px;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
     backdrop-filter: blur(10px);
+    width: 100%;
+    box-sizing: border-box;
 }
 
 /* Loading Spinner */
-.loading-spinner {
+#student-profile-update .loading-spinner {
     text-align: center;
     padding: 60px 20px;
     color: #667eea;
 }
 
-.loading-spinner i {
+#student-profile-update .loading-spinner i {
     font-size: 48px;
     margin-bottom: 20px;
 }
 
-.loading-spinner p {
+#student-profile-update .loading-spinner p {
     font-size: 18px;
     font-weight: 500;
 }
 
 /* Messages */
-.error-message, .success-message {
+#student-profile-update .error-message, 
+#student-profile-update .success-message {
     padding: 15px 20px;
     border-radius: 8px;
     margin-bottom: 20px;
@@ -130,30 +138,30 @@ body {
     font-weight: 500;
 }
 
-.error-message {
+#student-profile-update .error-message {
     background: #f8d7da;
     color: #721c24;
     border: 1px solid #f5c6cb;
 }
 
-.success-message {
+#student-profile-update .success-message {
     background: #d4edda;
     color: #155724;
     border: 1px solid #c3e6cb;
 }
 
 /* Photo Section */
-.photo-section {
+#student-profile-update .photo-section {
     text-align: center;
     margin-bottom: 40px;
 }
 
-.photo-container {
+#student-profile-update .photo-container {
     position: relative;
     display: inline-block;
 }
 
-.profile-photo {
+#student-profile-update .profile-photo {
     width: 150px;
     height: 150px;
     border-radius: 50%;
@@ -162,13 +170,13 @@ body {
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-.photo-overlay {
+#student-profile-update .photo-overlay {
     position: absolute;
     bottom: 10px;
     right: 10px;
 }
 
-.photo-btn {
+#student-profile-update .photo-btn {
     width: 40px;
     height: 40px;
     border-radius: 50%;
@@ -183,18 +191,18 @@ body {
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
-.photo-btn:hover:not(:disabled) {
+#student-profile-update .photo-btn:hover:not(:disabled) {
     background: #5a67d8;
     transform: scale(1.1);
 }
 
-.photo-btn:disabled {
+#student-profile-update .photo-btn:disabled {
     background: #ccc;
     cursor: not-allowed;
 }
 
 /* Form Sections */
-.form-section {
+#student-profile-update .form-section {
     margin-bottom: 40px;
     padding: 25px;
     background: #f8f9fa;
@@ -202,7 +210,7 @@ body {
     border-left: 5px solid #667eea;
 }
 
-.form-section h3 {
+#student-profile-update .form-section h3 {
     color: #2c3e50;
     margin-bottom: 25px;
     font-size: 20px;
@@ -212,28 +220,30 @@ body {
     gap: 10px;
 }
 
-.form-section h3 i {
+#student-profile-update .form-section h3 i {
     color: #667eea;
 }
 
 /* Form Grid */
-.form-grid {
+#student-profile-update .form-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 20px;
+    gap: 25px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.form-group {
+#student-profile-update .form-group {
     display: flex;
     flex-direction: column;
     position: relative;
 }
 
-.form-group.full-width {
+#student-profile-update .form-group.full-width {
     grid-column: 1 / -1;
 }
 
-.form-group label {
+#student-profile-update .form-group label {
     font-weight: 600;
     margin-bottom: 8px;
     color: #2c3e50;
@@ -242,14 +252,14 @@ body {
     gap: 5px;
 }
 
-.required {
+#student-profile-update .required {
     color: #e74c3c;
     font-weight: bold;
 }
 
-.form-group input,
-.form-group select,
-.form-group textarea {
+#student-profile-update .form-group input,
+#student-profile-update .form-group select,
+#student-profile-update .form-group textarea {
     padding: 12px 15px;
     border: 2px solid #e9ecef;
     border-radius: 8px;
@@ -258,33 +268,33 @@ body {
     background: white;
 }
 
-.form-group input:focus,
-.form-group select:focus,
-.form-group textarea:focus {
+#student-profile-update .form-group input:focus,
+#student-profile-update .form-group select:focus,
+#student-profile-update .form-group textarea:focus {
     outline: none;
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
 
-.form-group input:disabled,
-.form-group select:disabled,
-.form-group textarea:disabled {
+#student-profile-update .form-group input:disabled,
+#student-profile-update .form-group select:disabled,
+#student-profile-update .form-group textarea:disabled {
     background: #f8f9fa;
     color: #6c757d;
     cursor: not-allowed;
 }
 
-.form-group input[readonly] {
+#student-profile-update .form-group input[readonly] {
     background: #e9ecef;
     color: #495057;
 }
 
 /* Special Field Types */
-.form-group.non-editable {
+#student-profile-update .form-group.non-editable {
     position: relative;
 }
 
-.form-group.non-editable::after {
+#student-profile-update .form-group.non-editable::after {
     content: '';
     position: absolute;
     top: 0;
@@ -296,7 +306,7 @@ body {
     pointer-events: none;
 }
 
-.form-group.non-editable .fas.fa-lock {
+#student-profile-update .form-group.non-editable .fas.fa-lock {
     position: absolute;
     right: 15px;
     top: 50%;
@@ -305,11 +315,11 @@ body {
     z-index: 1;
 }
 
-.form-group.restricted {
+#student-profile-update .form-group.restricted {
     position: relative;
 }
 
-.request-change-btn {
+#student-profile-update .request-change-btn {
     position: absolute;
     right: 5px;
     top: 32px;
@@ -326,13 +336,13 @@ body {
     gap: 5px;
 }
 
-.request-change-btn:hover {
+#student-profile-update .request-change-btn:hover {
     background: #e0a800;
     transform: translateY(-1px);
 }
 
 /* Form Actions */
-.form-actions {
+#student-profile-update .form-actions {
     display: flex;
     justify-content: flex-end;
     gap: 15px;
@@ -342,7 +352,7 @@ body {
 }
 
 /* Modal Styles */
-.modal {
+#student-profile-update .modal {
     display: none;
     position: fixed;
     z-index: 1000;
@@ -354,7 +364,7 @@ body {
     backdrop-filter: blur(5px);
 }
 
-.modal-content {
+#student-profile-update .modal-content {
     position: absolute;
     top: 50%;
     left: 50%;
@@ -366,7 +376,7 @@ body {
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
 }
 
-.modal-header {
+#student-profile-update .modal-header {
     padding: 20px 30px;
     border-bottom: 1px solid #e9ecef;
     display: flex;
@@ -374,7 +384,7 @@ body {
     align-items: center;
 }
 
-.modal-header h3 {
+#student-profile-update .modal-header h3 {
     color: #2c3e50;
     font-size: 18px;
     font-weight: 600;
@@ -383,7 +393,7 @@ body {
     gap: 10px;
 }
 
-.close-btn {
+#student-profile-update .close-btn {
     background: none;
     border: none;
     font-size: 20px;
@@ -394,16 +404,16 @@ body {
     transition: all 0.3s ease;
 }
 
-.close-btn:hover {
+#student-profile-update .close-btn:hover {
     background: #f8f9fa;
     color: #495057;
 }
 
-.modal-body {
+#student-profile-update .modal-body {
     padding: 30px;
 }
 
-.modal-footer {
+#student-profile-update .modal-footer {
     padding: 20px 30px;
     border-top: 1px solid #e9ecef;
     display: flex;
@@ -412,7 +422,7 @@ body {
 }
 
 /* Pending Requests */
-.pending-requests {
+#student-profile-update .pending-requests {
     margin-top: 30px;
     background: rgba(255, 255, 255, 0.95);
     border-radius: 15px;
@@ -420,7 +430,7 @@ body {
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-.pending-requests h3 {
+#student-profile-update .pending-requests h3 {
     color: #2c3e50;
     margin-bottom: 20px;
     font-size: 20px;
@@ -430,13 +440,13 @@ body {
     gap: 10px;
 }
 
-.requests-list {
+#student-profile-update .requests-list {
     display: flex;
     flex-direction: column;
     gap: 15px;
 }
 
-.request-item {
+#student-profile-update .request-item {
     background: #f8f9fa;
     border: 1px solid #e9ecef;
     border-radius: 8px;
@@ -446,18 +456,18 @@ body {
     align-items: center;
 }
 
-.request-info h4 {
+#student-profile-update .request-info h4 {
     color: #2c3e50;
     margin-bottom: 5px;
 }
 
-.request-info p {
+#student-profile-update .request-info p {
     color: #6c757d;
     font-size: 14px;
     margin-bottom: 3px;
 }
 
-.request-status {
+#student-profile-update .request-status {
     padding: 5px 12px;
     border-radius: 15px;
     font-size: 12px;
@@ -465,51 +475,58 @@ body {
     text-transform: uppercase;
 }
 
-.status-pending {
+#student-profile-update .status-pending {
     background: #fff3cd;
     color: #856404;
 }
 
-.status-approved {
+#student-profile-update .status-approved {
     background: #d4edda;
     color: #155724;
 }
 
-.status-rejected {
+#student-profile-update .status-rejected {
     background: #f8d7da;
     color: #721c24;
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    .container {
-        padding: 10px;
+    #student-profile-update .container {
+        padding: 15px 20px;
+        max-width: 100%;
     }
     
-    .header {
+    #student-profile-update .profile-container {
+        padding: 25px 20px;
+    }
+
+    #student-profile-update .header {
+        padding: 15px 20px;
         flex-direction: column;
         gap: 20px;
         text-align: center;
     }
-    
-    .header-actions {
+
+    #student-profile-update .header-actions {
         justify-content: center;
     }
     
-    .form-grid {
+    #student-profile-update .form-grid {
         grid-template-columns: 1fr;
+        gap: 25px;
     }
     
-    .form-actions {
+    #student-profile-update .form-actions {
         flex-direction: column;
     }
     
-    .modal-content {
+    #student-profile-update .modal-content {
         width: 95%;
         margin: 10px;
     }
     
-    .request-item {
+    #student-profile-update .request-item {
         flex-direction: column;
         align-items: flex-start;
         gap: 15px;
@@ -517,20 +534,20 @@ body {
 }
 
 @media (max-width: 480px) {
-    .header h1 {
+    #student-profile-update .header h1 {
         font-size: 22px;
     }
     
-    .btn {
+    #student-profile-update .btn {
         padding: 10px 16px;
         font-size: 12px;
     }
     
-    .profile-container {
-        padding: 20px;
+    #student-profile-update .profile-container {
+        padding: 20px 15px;
     }
     
-    .form-section {
-        padding: 20px;
+    #student-profile-update .form-section {
+        padding: 20px 15px;
     }
 }

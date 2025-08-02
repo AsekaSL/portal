@@ -1,16 +1,7 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Profile Update</title>
-    <link rel="stylesheet" href="../../styles/admin/student-profile.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
+<div id="student-profile-update">
     <div class="container">
         <!-- Header -->
-        <div class="header">
+        <!-- <div class="header">
             <h1><i class="fas fa-user-graduate"></i>Student Profile Management</h1>
             <div class="header-actions">
                 <button class="btn btn-secondary" onclick="goBack()">
@@ -22,7 +13,7 @@
                     Refresh
                 </button>
             </div>
-        </div>
+        </div> -->
 
         <!-- Profile Container -->
         <div class="profile-container">
@@ -47,7 +38,8 @@
             <!-- Profile Photo Section -->
             <div class="photo-section">
                 <div class="photo-container">
-                    <img id="profilePhoto" src="https://via.placeholder.com/150" alt="Student Photo" class="profile-photo">
+                    <img id="profilePhoto" src="https://via.placeholder.com/150" alt="Student Photo"
+                        class="profile-photo">
                     <div class="photo-overlay">
                         <button id="changePhotoBtn" class="photo-btn" title="Change Photo">
                             <i class="fas fa-camera"></i>
@@ -306,7 +298,8 @@
                         </div>
                         <div class="form-group">
                             <label for="requestReason">Reason for Change:</label>
-                            <textarea id="requestReason" rows="4" required placeholder="Please explain why this field needs to be changed..."></textarea>
+                            <textarea id="requestReason" rows="4" required
+                                placeholder="Please explain why this field needs to be changed..."></textarea>
                         </div>
                         <div class="form-group">
                             <label for="requestedValue">Requested New Value:</label>
@@ -329,7 +322,4 @@
             </div>
         </div>
     </div>
-
-    <script src="../../controller/student/student-profile.js"></script>
-</body>
-</html>
+</div>

@@ -1,24 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard - Attendance View</title>
-    <link rel="stylesheet" href="../../styles/student/view-attendence.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <!-- Chart.js for pie charts -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <!-- Flatpickr for date range picker -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
-</head>
-
-<body>
-    <div class="container">
-
-    </div>
-
+<div class="attendance-view">
     <!-- Date Range Filter -->
     <div class="date-filter-section">
         <div class="date-filter-card">
@@ -99,9 +79,5 @@
             </div>
         </div>
     </div>
-    </div>
-
-    <script src="../../controller/student/view-attendance.js"></script>
-</body>
-
-</html>
+</div>
+</div>
